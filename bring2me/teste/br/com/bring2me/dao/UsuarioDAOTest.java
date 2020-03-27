@@ -33,7 +33,7 @@ class UsuarioDAOTest {
 		Usuario usr = new Usuario();
 		
 		usr.setNome("Zuamir Gutemberg");
-		usr.setCpfCnpj("08704534407");
+		usr.setCpfCnpj("08704534401");
 		usr.setTelefone1("81982263905");
 		usr.setDtCriacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
@@ -72,7 +72,7 @@ class UsuarioDAOTest {
 	}
 
 	@Test
-	void testGet() {
+	void testBuscarUsuario() {
 		String cpfCnpj = "81982263904";
 		Usuario usr = dao.getUsuario(cpfCnpj);
 		assertNotNull(usr);
@@ -91,7 +91,7 @@ class UsuarioDAOTest {
 	}
 
 	@Test
-	void testLista() {
+	void testListarUsuarios() {
 		List<Usuario> listaUsuarios = dao.listarUsuarios();
 		assertTrue(!listaUsuarios.isEmpty());
 	}
