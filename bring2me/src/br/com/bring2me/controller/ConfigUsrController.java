@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class ConfigUsrController {
 	
-	@RequestMapping(value = "/home")
-	public ModelAndView home(ModelAndView model) {
-		model.setViewName("index");
+	@RequestMapping(value = "/config")
+	public ModelAndView rastrearMalote(ModelAndView model) {
+		model.setViewName("config-usr");
 		model.addObject("message", "Hello World!!");
 		
 		return model;
