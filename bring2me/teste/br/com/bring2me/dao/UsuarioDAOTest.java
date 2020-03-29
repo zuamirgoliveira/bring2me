@@ -35,6 +35,8 @@ class UsuarioDAOTest {
 		usr.setNome("Zuamir Gutemberg");
 		usr.setCpfCnpj("08704534401");
 		usr.setTelefone1("81982263905");
+		usr.setEmail("zuamirgutemberg@gmail.com");
+		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
 		usr.setDtCriacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
 		usr.setNumero(213);
@@ -44,7 +46,13 @@ class UsuarioDAOTest {
 		usr.setCep(54720270);
 		usr.setComplemento("casa");
 		
-		int resultado = dao.salvar(usr);
+		int resultado = 0;
+		for(int i = 0; i < 5; i++) {
+			usr.setCpfCnpj("0870453440" + i);
+			resultado = dao.salvar(usr);
+		}
+		
+		
 		assertTrue(resultado > 0);
 	}
 
@@ -80,13 +88,13 @@ class UsuarioDAOTest {
 
 	@Test
 	void testDesativarUsr() {
-		int resultado = dao.ativarDesativarUsr("08704534401", false);
+		int resultado = dao.ativarDesativarUsr("08704534401", "INATIVO");
 		assertTrue(resultado > 0);
 	}
 
 	@Test
 	void testAtivarUsr() {
-		int resultado = dao.ativarDesativarUsr("08704534402", true);
+		int resultado = dao.ativarDesativarUsr("08704534402", "ATIVO");
 		assertTrue(resultado > 0);
 	}
 

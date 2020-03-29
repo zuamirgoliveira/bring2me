@@ -21,13 +21,13 @@ public class Usuario {
 	private String estado;
 	private int cep;
 	private String complemento;
-	private boolean statusUsuario;
+	private String statusUsuario;
 	
 	public Usuario() {}
 
 	public Usuario(int codigo, String cpfCnpj, String razaoSocial, String nome, String telefone1, String telefone2, String email,
 			Date dtNascimento, Date dtCriacao, Date dtAtualizacao, String logradouro, int numero, String bairro,
-			String cidade, String estado, int cep, String complemento, boolean statusUsuario) {
+			String cidade, String estado, int cep, String complemento, String statusUsuario) {
 	
 		this(cpfCnpj, razaoSocial, nome, telefone1, telefone2, email, dtNascimento, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
 				cidade, estado, cep, complemento, statusUsuario);
@@ -36,7 +36,7 @@ public class Usuario {
 	
 	public Usuario(String cpfCnpj, String razaoSocial, String nome, String telefone1, String telefone2, String email,
 			Date dtNascimento, Date dtCriacao, Date dtAtualizacao, String logradouro, int numero, String bairro,
-			String cidade, String estado, int cep, String complemento, boolean statusUsuario) {
+			String cidade, String estado, int cep, String complemento, String statusUsuario) {
 		this.cpfCnpj = cpfCnpj;
 		this.razaoSocial = razaoSocial;
 		this.nome = nome;
@@ -192,11 +192,11 @@ public class Usuario {
 		this.complemento = complemento;
 	}
 	
-	public boolean getStatusUsuario() {
+	public String getStatusUsuario() {
 		return statusUsuario;
 	}
 
-	public void setStatusUsuario(boolean statusUsuario) {
+	public void setStatusUsuario(String statusUsuario) {
 		this.statusUsuario = statusUsuario;
 	}
 

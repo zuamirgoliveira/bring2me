@@ -12,7 +12,7 @@ public interface UsuarioDAO {
 	
 	public Usuario getUsuario(String cpfCnpj);
 	
-	public int ativarDesativarUsr(String cpfCnpj, boolean status);
+	public int ativarDesativarUsr(String cpfCnpj, String status);
 	
 	public List<Usuario> listarUsuarios();
 

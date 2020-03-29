@@ -51,7 +51,7 @@ footer {
             </div>
             <div class="form-group">
                 <label for="inputNome">Nome / Razão Social *</label>
-                <input type="nome" class="form-control" id="inputNome" value="" required>
+                <input type="nome" class="form-control" id="inputNome" value="${usr.nome}" required>
             </div>
             <div class="row">
 

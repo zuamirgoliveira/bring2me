@@ -71,7 +71,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 						usr.setEstado(rs.getString("estado"));
 						usr.setCep(Integer.parseInt(rs.getString("cep")));
 						usr.setComplemento(rs.getString("complemento"));
-						usr.setStatusUsuario(Boolean.parseBoolean(rs.getString("status_usuario")));
+						usr.setStatusUsuario(rs.getString("status_usuario"));
 					}
 				} catch (SQLException|DataAccessException e) {
 					//logger
@@ -85,7 +85,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 	
 	@Override
-	public int ativarDesativarUsr(String cpfCnpj, boolean status) {
+	public int ativarDesativarUsr(String cpfCnpj, String status) {
 		String sql = "UPDATE tb_usuario SET dt_atualizacao = ?, status_usuario = ? WHERE cpf_cnpj = ?";
 		
 		DateUtils dt = new DateUtils();
@@ -102,24 +102,24 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 sql,
                 (rs, rowNum) ->
                        new Usuario(
-                    		   Integer.parseInt(rs.getString("codigo")),
-       						rs.getString("cpf_cnpj"),
-       						rs.getString("razao_social"),
-       						rs.getString("nome"),
-       						rs.getString("telefone_1"),
-       						rs.getString("telefone_2"),
-       						rs.getString("email"),
-       						dt.stringToDate(rs.getString("dt_nascimento")),
-       						dt.stringToDate(rs.getString("dt_criacao")),
-       						dt.stringToDate(rs.getString("dt_atualizacao")),
-       						rs.getString("logradouro"),
-       						Integer.parseInt(rs.getString("numero")),
-       						rs.getString("bairro"),
-       						rs.getString("cidade"),
-       						rs.getString("estado"),
-       						Integer.parseInt(rs.getString("cep")),
-       						rs.getString("complemento"),
-       						Boolean.parseBoolean(rs.getString("status_usuario"))
+                    		    Integer.parseInt(rs.getString("codigo")),
+	       						rs.getString("cpf_cnpj"),
+	       						rs.getString("razao_social"),
+	       						rs.getString("nome"),
+	       						rs.getString("telefone_1"),
+	       						rs.getString("telefone_2"),
+	       						rs.getString("email"),
+	       						dt.stringToDate(rs.getString("dt_nascimento")),
+	       						dt.stringToDate(rs.getString("dt_criacao")),
+	       						dt.stringToDate(rs.getString("dt_atualizacao")),
+	       						rs.getString("logradouro"),
+	       						Integer.parseInt(rs.getString("numero")),
+	       						rs.getString("bairro"),
+	       						rs.getString("cidade"),
+	       						rs.getString("estado"),
+	       						Integer.parseInt(rs.getString("cep")),
+	       						rs.getString("complemento"),
+	       						rs.getString("status_usuario")
                         )
         );
 	}
