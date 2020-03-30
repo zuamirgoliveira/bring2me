@@ -43,6 +43,7 @@ body {
 				<th>Telefone Secundário</th>
 				<th>Email</th>
 				<th>Status</th>
+				<th>Edit</th>
 		      </tr>
 		    </thead>
 		    <c:forEach items="${usuarioLista}" var="usr">
@@ -57,9 +58,16 @@ body {
 				<td>${usr.telefone2}</td>
 				<td>${usr.email}</td>
 				<td>${usr.statusUsuario}</td>
+				<td><a href="">Edit</a></td>
 		      </tr>
 		    </c:forEach>
 		  </table>
+		  
+		  <div id="btn" class="container">
+				<a href="/bring2me/config/novoUsuario" id="homeBtn" class="btn btn-light">
+					Novo Usuário
+				</a>
+			</div>
 
 </div>
 </body>
