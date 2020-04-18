@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+body {
+	background: #E7E5E6;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.home-header {
+  max-width: 700px;
+}
+
+#titleText {
+	margin-top: -105px;
+	color: #E7E5E6;
+}
+		
+.btn {
+	background: #026873;
+	color: #FFF;
+	width: 150px;
+	height: 100px;
+	vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+}
+
+.bgHome {
+	background: #795148;
+	width: 75%;
+	height: 100%;
+	margin: 0 auto 0 auto;
+}

@@ -4,13 +4,10 @@ import java.util.Date;
 
 public class Usuario {
 		
-	private int codigo;
+	private int idUsuario;
 	private String cpfCnpj;
-	private String razaoSocial;
-	private String nome;
-	private String telefone1;
-	private String telefone2;
-	private String email;
+	private String nomeRazaoSocial;
+	private String telefone;
 	private Date dtNascimento;
 	private Date dtCriacao;
 	private Date dtAtualizacao;
@@ -21,28 +18,22 @@ public class Usuario {
 	private String estado;
 	private int cep;
 	private String complemento;
-	private String statusUsuario;
 	
 	public Usuario() {}
 
-	public Usuario(int codigo, String cpfCnpj, String razaoSocial, String nome, String telefone1, String telefone2, String email,
-			Date dtNascimento, Date dtCriacao, Date dtAtualizacao, String logradouro, int numero, String bairro,
-			String cidade, String estado, int cep, String complemento, String statusUsuario) {
+	public Usuario(int idUsuario, String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao,
+			Date dtAtualizacao, String logradouro, int numero, String bairro, String cidade, String estado, int cep, String complemento) {
 	
-		this(cpfCnpj, razaoSocial, nome, telefone1, telefone2, email, dtNascimento, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
-				cidade, estado, cep, complemento, statusUsuario);
-		this.codigo = codigo;
+		this(cpfCnpj, nomeRazaoSocial, telefone, dtNascimento, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
+				cidade, estado, cep, complemento);
+		this.idUsuario = idUsuario;
 	}
 	
-	public Usuario(String cpfCnpj, String razaoSocial, String nome, String telefone1, String telefone2, String email,
-			Date dtNascimento, Date dtCriacao, Date dtAtualizacao, String logradouro, int numero, String bairro,
-			String cidade, String estado, int cep, String complemento, String statusUsuario) {
+	public Usuario(String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao, Date dtAtualizacao, 
+			String logradouro, int numero, String bairro, String cidade, String estado, int cep, String complemento) {
 		this.cpfCnpj = cpfCnpj;
-		this.razaoSocial = razaoSocial;
-		this.nome = nome;
-		this.telefone1 = telefone1;
-		this.telefone2 = telefone2;
-		this.email = email;
+		this.nomeRazaoSocial = nomeRazaoSocial;
+		this.telefone = telefone;
 		this.dtNascimento = dtNascimento;
 		this.dtCriacao = dtCriacao;
 		this.dtAtualizacao = dtAtualizacao;
@@ -53,15 +44,14 @@ public class Usuario {
 		this.estado = estado;
 		this.cep = cep;
 		this.complemento = complemento;
-		this.statusUsuario = statusUsuario;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getCpfCnpj() {
@@ -72,45 +62,22 @@ public class Usuario {
 		this.cpfCnpj = cpfCnpj;
 	}
 
-	public String getRazaoSocial() {
-		return razaoSocial;
+	public String getNomeRazaoSocial() {
+		return nomeRazaoSocial;
 	}
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+	public void setNomeRazaoSocial(String nomeRazaoSocial) {
+		this.nomeRazaoSocial = nomeRazaoSocial;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
-	public String getTelefone1() {
-		return telefone1;
-	}
-
-	public void setTelefone1(String telefone1) {
-		this.telefone1 = telefone1;
-	}
-
-	public String getTelefone2() {
-		return telefone2;
-	}
-
-	public void setTelefone2(String telefone2) {
-		this.telefone2 = telefone2;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public Date getDtNascimento() {
 		return dtNascimento;
@@ -191,22 +158,14 @@ public class Usuario {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	
-	public String getStatusUsuario() {
-		return statusUsuario;
-	}
-
-	public void setStatusUsuario(String statusUsuario) {
-		this.statusUsuario = statusUsuario;
-	}
 
 	@Override
 	public String toString() {
-		return "Usuario [codigo=" + codigo + ", cpfCnpj=" + cpfCnpj + ", razaoSocial=" + razaoSocial + ", nome=" + nome
-				+ ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", email=" + email + ", dtNascimento=" + dtNascimento
+		return "Usuario [idUsuario=" + idUsuario + ", cpfCnpj=" + cpfCnpj + ", razaoSocial=" + nomeRazaoSocial
+				+ ", telefone1=" + telefone + ", dtNascimento=" + dtNascimento
 				+ ", dtCriacao=" + dtCriacao + ", dtAtualizacao=" + dtAtualizacao + ", logradouro=" + logradouro
 				+ ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep="
-				+ cep + ", complemento=" + complemento + ", statusUsuario=" +statusUsuario+ "]";
+				+ cep + ", complemento=" + complemento + "]";
 	}
 		
 }

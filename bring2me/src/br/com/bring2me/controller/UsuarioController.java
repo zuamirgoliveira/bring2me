@@ -13,14 +13,14 @@ import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Usuario;
 
 @Controller
-public class ConfigUsrController {
+public class UsuarioController {
 	
 	@Autowired
 	private UsuarioDAO usrDAO;
 	
 	@RequestMapping(value = "/config")
 	public ModelAndView listarUsuarios(ModelAndView model) {
-		model.setViewName("/usuario/usr-list-page");
+		model.setViewName("usuarios-pages/listar-usuarios");
 		
 		List<Usuario> usuarioLista = usrDAO.listarUsuarios();
 		model.addObject("usuarioLista", usuarioLista);
@@ -30,7 +30,7 @@ public class ConfigUsrController {
 	
 	@RequestMapping(value = "/config/novoUsuario", method = RequestMethod.GET)
 	public ModelAndView novoUsuario(ModelAndView model) {
-		model.setViewName("/usuario/usr-form-page");
+		model.setViewName("/usr-form-page");
 		
 		Usuario novoUsr = new Usuario();
 		
@@ -39,7 +39,7 @@ public class ConfigUsrController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/config/salvar", method = RequestMethod.POST)
+	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView editarUsuario(@ModelAttribute Usuario usuario) {
 		usrDAO.salvar(usuario);
 		

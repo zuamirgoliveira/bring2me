@@ -32,10 +32,9 @@ class UsuarioDAOTest {
 		DateUtils dt = new DateUtils();
 		Usuario usr = new Usuario();
 		
-		usr.setNome("Zuamir Gutemberg");
+		usr.setNomeRazaoSocial("Zuamir Gutemberg");
 		usr.setCpfCnpj("08704534401");
-		usr.setTelefone1("81982263905");
-		usr.setEmail("zuamirgutemberg@gmail.com");
+		usr.setTelefone("81982263905");
 		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
 		usr.setDtCriacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
@@ -61,9 +60,9 @@ class UsuarioDAOTest {
 		DateUtils dt = new DateUtils();
 		Usuario usr = new Usuario();
 		
-		usr.setNome("Zuamir Gutemberg Vieira Candido de Oliveira");
+		usr.setNomeRazaoSocial("Zuamir Gutemberg Vieira Candido de Oliveira");
 		usr.setCpfCnpj("08704534401");
-		usr.setTelefone1("81982263902");
+		usr.setTelefone("81982263902");
 		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
 		usr.setDtAtualizacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
@@ -84,18 +83,6 @@ class UsuarioDAOTest {
 		String cpfCnpj = "81982263904";
 		Usuario usr = dao.getUsuario(cpfCnpj);
 		assertNotNull(usr);
-	}
-
-	@Test
-	void testDesativarUsr() {
-		int resultado = dao.ativarDesativarUsr("08704534401", "INATIVO");
-		assertTrue(resultado > 0);
-	}
-
-	@Test
-	void testAtivarUsr() {
-		int resultado = dao.ativarDesativarUsr("08704534402", "ATIVO");
-		assertTrue(resultado > 0);
 	}
 
 	@Test
