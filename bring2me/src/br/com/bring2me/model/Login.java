@@ -2,12 +2,16 @@ package br.com.bring2me.model;
 
 public class Login {
 	
+	private int idUsuario;
 	private String nmUsuario;
 	private String email;
 	private String senha;
 	
 	public Login() {}
 	
+	public int getIdusuario() {
+		return idUsuario;
+	}
 	
 	public String getNmUsuario() {
 		return nmUsuario;
