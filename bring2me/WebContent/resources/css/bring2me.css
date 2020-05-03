@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background: #E7E5E6;
+	background: #F2F2F2;
 }
 @media (min-width: 768px) {
   html {
@@ -18,14 +18,9 @@ body {
 .home-header {
   max-width: 700px;
 }
-
-#titleText {
-	margin-top: -105px;
-	color: #E7E5E6;
-}
 		
-.btn {
-	background: #026873;
+#homeBtn {
+	background: #4A738C;
 	color: #FFF;
 	width: 150px;
 	height: 100px;
@@ -33,9 +28,16 @@ body {
 	display: table-cell;
 	text-align: center;
 }
+.btn {
+	background: #4A738C;
+	color: #FFF;
+	vertical-align: middle;
+	display: table-cell;
+	text-align: center;
+}
 
 .bgHome {
-	background: #795148;
+	background: #F2F2F2;
 	width: 75%;
 	height: 100%;
 	margin: 0 auto 0 auto;

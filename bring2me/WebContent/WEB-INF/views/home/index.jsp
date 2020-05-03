@@ -7,15 +7,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="resources/css/home.css" rel="stylesheet">
+		<link href="resources/css/bring2me.css" rel="stylesheet">
 		<title>Bring2Me</title>	
 	
 	</head>
 	<body>
 		<div class="bgHome p-3 p-md-5 text-white rounded">
 			 <div class="home-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-		      <img class="mb-2" id="logoBox" src="resources/imagens/3d-gray-cubo.png" alt="" width="150" height="150">
-		      <h1 class="display-4" id="titleText">Bring2Me</h1>
+		      <img class="mb-2" id="logoBox" src="resources/imagens/icon/Bring2Me-Azul-B-logo.png" alt="" width="50%" height="50%">
 		    </div>
 		    <div class="container">
 		      <div class="card-deck mb-3 text-center">
@@ -35,8 +34,8 @@
 				</a>
 		       </div>
 		       <div class="card-body">
-				<a href="/bring2me/config" id="homeBtn" class="btn">
-					Config
+				<a href="/bring2me/usuario" id="homeBtn" class="btn">
+					Usuarios
 				</a>
 		       </div>
 		      </div>

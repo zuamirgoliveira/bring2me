@@ -18,23 +18,20 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioDAO usrDAO;
 	
-	@RequestMapping(value = "/config")
+	@RequestMapping(value = "/usuario")
 	public ModelAndView listarUsuarios(ModelAndView model) {
-		model.setViewName("usuarios-pages/listar-usuarios");
-		
+		model.setViewName("usuario/listar-usuarios");
 		List<Usuario> usuarioLista = usrDAO.listarUsuarios();
 		model.addObject("usuarioLista", usuarioLista);
 		
 		return model;
 	}
 	
-	@RequestMapping(value = "/config/novoUsuario", method = RequestMethod.GET)
+	@RequestMapping(value = "/novoUsuario", method = RequestMethod.GET)
 	public ModelAndView novoUsuario(ModelAndView model) {
-		model.setViewName("/usr-form-page");
-		
-		Usuario novoUsr = new Usuario();
-		
-		model.addObject("usuario", novoUsr);
+		model.setViewName("usuario/form-usuarios");
+		Usuario novoUsuario = new Usuario();
+		model.addObject("usuario", novoUsuario);
 		
 		return model;
 	}
@@ -42,6 +39,13 @@ public class UsuarioController {
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView editarUsuario(@ModelAttribute Usuario usuario) {
 		usrDAO.salvar(usuario);
+		
+		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value = "/atualizar", method = RequestMethod.POST)
+	public ModelAndView atuaizarUsuario(@ModelAttribute Usuario usuario) {
+		usrDAO.atualizar(usuario);
 		
 		return new ModelAndView("redirect:/");
 	}

@@ -7,17 +7,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="resources/css/home.css" rel="stylesheet">
-	<title>Form Usuário</title>	
+	<link href="resources/css/bring2me.css" rel="stylesheet">
+	<title>Usuários</title>	
 	
 	</head>
 	<body>
-		<div class="bgHome p-3 p-md-5 text-white rounded">
+		<div class="bgHome p-3 p-md-5 rounded">
 			<div class="home-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-			    <img class="mb-2" id="logoBox" src="resources/imagens/3d-gray-cubo.png" alt="" width="150" height="150">
-			    <h1 class="display-4" id="titleText">Bring2Me</h1>
+			    <img class="mb-2" id="logoBox" src="resources/imagens/icon/Bring2Me-Azul-B-logo.png" alt="" width="50%" height="50%">
 			  </div>
-		    <table class="table" style="color: #FFF">
+		    <table class="table">
 				    <thead>
 				      <tr>
 						<th>Documento</th>
@@ -38,12 +37,12 @@
 						<td>${usr.bairro}</td>
 						<td>${usr.cidade}</td>
 						<td>${usr.estado}</td>
-						<td><a href="">Edit</a></td>
+						<td><a href="/bring2me/atualizar"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
 				      </tr>
 				    </c:forEach>
 				  </table>
 			  <div id="btn" class="container">
-				<a href="/bring2me/config/novoUsuario" id="homeBtn" class="btn">
+				<a href="/bring2me/novoUsuario" id="novoUsuarioBtn" class="btn">
 					Novo Usuário
 				</a>
 			</div>

@@ -7,9 +7,9 @@ import br.com.bring2me.model.Usuario;
 
 public interface UsuarioDAO {
 	
-	public int salvar(Usuario usr);
+	public int salvar(Usuario novoUsuario);
 	
-	public int atualizar(Usuario usr);
+	public int atualizar(Usuario usuario);
 	
 	public Usuario getUsuario(String cpfCnpj);
 	
