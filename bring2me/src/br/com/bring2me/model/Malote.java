@@ -9,31 +9,31 @@ public class Malote {
 	private Date dtPostagem;
 	private Date dtPrevEntrega;
 	private Date dtEntrega;
-	private String codioRastreio;
+	private String codigoRastreio;
 	private String tpTransporte;
-	private int usrRemetente;
-	private int usrDestinatario;
+	private int idUsrRemetente;
+	private int idUsrDestinatario;
 	
 	public Malote() {}
 
 	public Malote(int idMalote, String status, Date dtPostagem, Date dtPrevEntrega, Date dtEntrega,
-			String codioRastreio, String tpTransporte, int usrRemetente, int usrDestinatario) {
+			String codigoRastreio, String tpTransporte, int idUsrRemetente, int idUsrDestinatario) {
 		
-		this(status, dtPostagem, dtPrevEntrega, dtEntrega, codioRastreio, tpTransporte, usrRemetente, usrDestinatario);
+		this(status, dtPostagem, dtPrevEntrega, dtEntrega, codigoRastreio, tpTransporte, idUsrRemetente, idUsrDestinatario);
 		this.idMalote = idMalote;
 	}
 	
 	public Malote(String status, Date dtPostagem, Date dtPrevEntrega, Date dtEntrega,
-			String codioRastreio, String tpTransporte, int usrRemetente, int usrDestinatario) {
+			String codigoRastreio, String tpTransporte, int idUsrRemetente, int idUsrDestinatario) {
 		
 		this.status = status;
 		this.dtPostagem = dtPostagem;
 		this.dtPrevEntrega = dtPrevEntrega;
 		this.dtEntrega = dtEntrega;
-		this.codioRastreio = codioRastreio;
+		this.codigoRastreio = codigoRastreio;
 		this.tpTransporte = tpTransporte;
-		this.usrRemetente = usrRemetente;
-		this.usrDestinatario = usrDestinatario;
+		this.idUsrRemetente = idUsrRemetente;
+		this.idUsrDestinatario = idUsrDestinatario;
 	}
 
 	public int getIdMalote() {
@@ -76,12 +76,12 @@ public class Malote {
 		this.dtEntrega = dtEntrega;
 	}
 
-	public String getCodioRastreio() {
-		return codioRastreio;
+	public String getCodigoRastreio() {
+		return codigoRastreio;
 	}
 
-	public void setCodioRastreio(String codioRastreio) {
-		this.codioRastreio = codioRastreio;
+	public void setCodigoRastreio(String codigoRastreio) {
+		this.codigoRastreio = codigoRastreio;
 	}
 
 	public String getTpTransporte() {
@@ -92,27 +92,27 @@ public class Malote {
 		this.tpTransporte = tpTransporte;
 	}
 
-	public int getUsrRemetente() {
-		return usrRemetente;
+	public int getIdUsrRemetente() {
+		return idUsrRemetente;
 	}
 
-	public void setUsrRemetente(int usrRemetente) {
-		this.usrRemetente = usrRemetente;
+	public void setIdUsrRemetente(int idUsrRemetente) {
+		this.idUsrRemetente = idUsrRemetente;
 	}
 
-	public int getUsrDestinatario() {
-		return usrDestinatario;
+	public int getIdUsrDestinatario() {
+		return idUsrDestinatario;
 	}
 
-	public void setUsrDestinatario(int usrDestinatario) {
-		this.usrDestinatario = usrDestinatario;
+	public void setIdUsrDestinatario(int idUsrDestinatario) {
+		this.idUsrDestinatario = idUsrDestinatario;
 	}
 
 	@Override
 	public String toString() {
 		return "Malote [idMalote=" + idMalote + ", status=" + status + ", dtPostagem=" + dtPostagem + ", dtPrevEntrega="
-				+ dtPrevEntrega + ", dtEntrega=" + dtEntrega + ", codioRastreio=" + codioRastreio + ", tpTransporte="
-				+ tpTransporte + ", usrRemetente=" + usrRemetente + ", usrDestinatario=" + usrDestinatario + "]";
+				+ dtPrevEntrega + ", dtEntrega=" + dtEntrega + ", codigoRastreio=" + codigoRastreio + ", tpTransporte="
+				+ tpTransporte + ", idUsrRemetente=" + idUsrRemetente + ", idUsrDestinatario=" + idUsrDestinatario + "]";
 	}
 
 }

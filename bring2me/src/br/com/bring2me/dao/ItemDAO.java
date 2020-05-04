@@ -6,11 +6,11 @@ import br.com.bring2me.model.Item;
 
 public interface ItemDAO {
 	
-	public int salvar(Item novoUsuario);
+	public int salvar(Item novoItem);
 	
-	public int atualizar(Item usuario);
+	public int atualizar(Item item);
 	
-	public int deletar(int usuario);
+	public int deletar(int idItem);
 	
 	public Item buscarItem(int idItem);
 	

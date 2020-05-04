@@ -11,7 +11,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import br.com.bring2me.model.Login;
 import br.com.bring2me.model.Usuario;
 import br.com.bring2me.util.DateUtils;
 
@@ -22,14 +21,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public UsuarioDAOImpl(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
-	@Override
-	public Login getLogin(Login login) {
-		String sql = "SELECT * FROM tb_login WHERE nm_usuario = "+ login.getNmUsuario() +" AND senha = "+ login.getSenha();
-		
-		return login;
-	}
-	
+
 	@Override
 	public int salvar(Usuario usr) {
 	
