@@ -1,4 +1,4 @@
-package br.com.bring2me.dao;
+package br.com.bring2me.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Usuario;
 import br.com.bring2me.util.DateUtils;
 
@@ -25,11 +26,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int salvar(Usuario usr) {
 	
-		String sql = "INSERT INTO tb_usuario (cpf_cnpj, razao_social, nome, telefone_1, telefone_2, email, dt_nascimento, dt_criacao, dt_atualizacao,"
-				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, dt_nascimento, dt_criacao, dt_atualizacao,"
+				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, SYSDATE(), ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		return jdbcTemplate.update(sql, usr.getCpfCnpj(), usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getDtNascimento(),
-				usr.getDtCriacao(), usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
+				usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
 				usr.getEstado(), usr.getCep(), usr.getComplemento());
 	}
 
@@ -54,7 +55,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				DateUtils dt = new DateUtils();
 				try {
 					if (rs.next()) {
-						usr.setIdUsuario(Integer.parseInt(rs.getString("id_usuario")));
+						usr.setIdUsuario(rs.getString("id_usuario"));
 						usr.setCpfCnpj(rs.getString("cpf_cnpj"));
 						usr.setNomeRazaoSocial(rs.getString("razao_social"));
 						usr.setTelefone(rs.getString("telefone"));
@@ -62,11 +63,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 						usr.setDtCriacao(dt.stringToDate(rs.getString("dt_criacao")));
 						usr.setDtAtualizacao(dt.stringToDate(rs.getString("dt_atualizacao")));
 						usr.setLogradouro(rs.getString("logradouro"));
-						usr.setNumero(Integer.parseInt(rs.getString("numero")));
+						usr.setNumero(rs.getString("numero"));
 						usr.setBairro(rs.getString("bairro"));
 						usr.setCidade(rs.getString("cidade"));
 						usr.setEstado(rs.getString("estado"));
-						usr.setCep(Integer.parseInt(rs.getString("cep")));
+						usr.setCep(rs.getString("cep"));
 						usr.setComplemento(rs.getString("complemento"));
 					}
 				} catch (SQLException|DataAccessException e) {
@@ -89,7 +90,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 sql,
                 (rs, rowNum) ->
                        new Usuario(
-                    		    Integer.parseInt(rs.getString("id_usuario")),
+                    		    rs.getString("id_usuario"),
 	       						rs.getString("cpf_cnpj"),
 	       						rs.getString("nome_razao_social"),
 	       						rs.getString("telefone"),
@@ -97,11 +98,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	       						dt.stringToDate(rs.getString("dt_criacao")),
 	       						dt.stringToDate(rs.getString("dt_atualizacao")),
 	       						rs.getString("logradouro"),
-	       						Integer.parseInt(rs.getString("numero")),
+	       						rs.getString("numero"),
 	       						rs.getString("bairro"),
 	       						rs.getString("cidade"),
 	       						rs.getString("estado"),
-	       						Integer.parseInt(rs.getString("cep")),
+	       						rs.getString("cep"),
 	       						rs.getString("complemento")
                         )
         );

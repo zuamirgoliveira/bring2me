@@ -11,10 +11,10 @@ function limpa_formulário_cep() {
 function meu_callback(conteudo) {
 	if (!("erro" in conteudo)) {
 		//Atualiza os campos com os valores.
-		document.getElementById('logradouro').value=(conteudo.logradouro);
-		document.getElementById('bairro').value=(conteudo.bairro);
-		document.getElementById('cidade').value=(conteudo.localidade);
-		document.getElementById('estado').value=(conteudo.uf);
+		document.getElementById('inputLogradouro').value=(conteudo.logradouro);
+		document.getElementById('inputBairro').value=(conteudo.bairro);
+		document.getElementById('inputCidade').value=(conteudo.localidade);
+		document.getElementById('inputEstado').value=(conteudo.uf);
 
 	} //end if.
 	else {

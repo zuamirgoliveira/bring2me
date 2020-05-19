@@ -1,10 +1,11 @@
-package br.com.bring2me.dao;
+package br.com.bring2me.dao.impl;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import br.com.bring2me.dao.TramiteDAO;
 import br.com.bring2me.model.Tramite;
 import br.com.bring2me.util.DateUtils;
 

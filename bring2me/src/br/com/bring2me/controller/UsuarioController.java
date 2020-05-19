@@ -37,7 +37,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public ModelAndView editarUsuario(@ModelAttribute Usuario usuario) {
+	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
 		usrDAO.salvar(usuario);
 		
 		return new ModelAndView("redirect:/");

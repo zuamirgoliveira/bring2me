@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import br.com.bring2me.dao.impl.UsuarioDAOImpl;
 import br.com.bring2me.model.Usuario;
 import br.com.bring2me.util.*;
 
@@ -38,11 +39,11 @@ class UsuarioDAOTest {
 		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
 		usr.setDtCriacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
-		usr.setNumero(213);
+		usr.setNumero("213");
 		usr.setBairro("Parque Capibaribe");
 		usr.setCidade("São Lourenço da Mata");
 		usr.setEstado("Pernambuco");
-		usr.setCep(54720270);
+		usr.setCep("54720270");
 		usr.setComplemento("casa");
 		
 		int resultado = 0;
@@ -66,11 +67,11 @@ class UsuarioDAOTest {
 		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
 		usr.setDtAtualizacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
-		usr.setNumero(213);
+		usr.setNumero("213");
 		usr.setBairro("Parque Capibaribe");
 		usr.setCidade("São Lourenço da Mata");
 		usr.setEstado("Pernambuco");
-		usr.setCep(54720270);
+		usr.setCep("54720270");
 		usr.setComplemento("casa");
 		
 		int resultado = dao.atualizar(usr);

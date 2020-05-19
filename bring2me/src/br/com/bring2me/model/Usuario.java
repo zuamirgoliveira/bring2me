@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Usuario {
 		
-	private int idUsuario;
+	private String idUsuario;
 	private String cpfCnpj;
 	private String nomeRazaoSocial;
 	private String telefone;
@@ -12,17 +12,17 @@ public class Usuario {
 	private Date dtCriacao;
 	private Date dtAtualizacao;
 	private String logradouro;
-	private int numero;
+	private String numero;
 	private String bairro;
 	private String cidade;
 	private String estado;
-	private int cep;
+	private String cep;
 	private String complemento;
 	
 	public Usuario() {}
 
-	public Usuario(int idUsuario, String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao,
-			Date dtAtualizacao, String logradouro, int numero, String bairro, String cidade, String estado, int cep, String complemento) {
+	public Usuario(String idUsuario, String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao,
+			Date dtAtualizacao, String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
 	
 		this(cpfCnpj, nomeRazaoSocial, telefone, dtNascimento, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
 				cidade, estado, cep, complemento);
@@ -30,7 +30,7 @@ public class Usuario {
 	}
 	
 	public Usuario(String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao, Date dtAtualizacao, 
-			String logradouro, int numero, String bairro, String cidade, String estado, int cep, String complemento) {
+			String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
 		this.cpfCnpj = cpfCnpj;
 		this.nomeRazaoSocial = nomeRazaoSocial;
 		this.telefone = telefone;
@@ -46,11 +46,11 @@ public class Usuario {
 		this.complemento = complemento;
 	}
 
-	public int getIdUsuario() {
+	public String getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
@@ -111,11 +111,11 @@ public class Usuario {
 		this.logradouro = logradouro;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -143,11 +143,11 @@ public class Usuario {
 		this.estado = estado;
 	}
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -161,7 +161,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", cpfCnpj=" + cpfCnpj + ", razaoSocial=" + nomeRazaoSocial
+		return "Usuario [idUsuario=" + idUsuario + ", cpfCnpj=" + cpfCnpj + ", nomeRazaoSocial=" + nomeRazaoSocial
 				+ ", telefone1=" + telefone + ", dtNascimento=" + dtNascimento
 				+ ", dtCriacao=" + dtCriacao + ", dtAtualizacao=" + dtAtualizacao + ", logradouro=" + logradouro
 				+ ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep="

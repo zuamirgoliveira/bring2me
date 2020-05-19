@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.bring2me.dao.UsuarioDAO;
-import br.com.bring2me.dao.UsuarioDAOImpl;
+import br.com.bring2me.dao.impl.UsuarioDAOImpl;
 
 @Configuration
 @EnableWebMvc

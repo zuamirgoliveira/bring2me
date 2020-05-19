@@ -28,15 +28,15 @@
 						<th></th>
 				      </tr>
 				    </thead>
-				    <c:forEach items="${usuarioLista}" var="usr">
+				    <c:forEach items="${usuarioLista}" var="usuario">
 				    <tbody>
 				      <tr>
-						<td>${usr.cpfCnpj}</td>
-						<td>${usr.nomeRazaoSocial}</td>
-						<td>${usr.telefone}</td>
-						<td>${usr.bairro}</td>
-						<td>${usr.cidade}</td>
-						<td>${usr.estado}</td>
+						<td>${usuario.cpfCnpj}</td>
+						<td>${usuario.nomeRazaoSocial}</td>
+						<td>${usuario.telefone}</td>
+						<td>${usuario.bairro}</td>
+						<td>${usuario.cidade}</td>
+						<td>${usuario.estado}</td>
 						<td><a href="/bring2me/atualizar"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
 				      </tr>
 				    </c:forEach>

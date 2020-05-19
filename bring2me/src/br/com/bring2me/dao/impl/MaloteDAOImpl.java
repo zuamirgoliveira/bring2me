@@ -1,4 +1,4 @@
-package br.com.bring2me.dao;
+package br.com.bring2me.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import br.com.bring2me.dao.MaloteDAO;
 import br.com.bring2me.model.Malote;
 import br.com.bring2me.util.DateUtils;
 
