@@ -39,7 +39,7 @@
 						<td>${usuario.bairro}</td>
 						<td>${usuario.cidade}</td>
 						<td>${usuario.estado}</td>
-						<td><a href="/bring2me/atualizar"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<td><a href="/bring2me/editar?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
 				      </tr>
 				    </c:forEach>
 				  </table>

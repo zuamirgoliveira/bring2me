@@ -2,6 +2,8 @@ package br.com.bring2me.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -38,16 +40,24 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
-		usrDAO.salvar(usuario);
+		if(usuario.getIdUsuario() == null) {
+			usrDAO.salvar(usuario);			
+		} else {
+			usrDAO.atualizar(usuario);
+		}
 		
 		return new ModelAndView("redirect:/");
 	}
 	
-	@RequestMapping(value = "/atualizar", method = RequestMethod.POST)
-	public ModelAndView atuaizarUsuario(@ModelAttribute Usuario usuario) {
-		usrDAO.atualizar(usuario);
+	@RequestMapping(value = "/editar", method = RequestMethod.GET)
+	public ModelAndView editarUsuario(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		Usuario usuario = usrDAO.getUsuarioById(id);
 		
-		return new ModelAndView("redirect:/");
+		ModelAndView model = new ModelAndView();
+		model.setViewName("usuario/form-usuarios");
+		model.addObject("usuario", usuario);
+		return model;
 	}
 
 }

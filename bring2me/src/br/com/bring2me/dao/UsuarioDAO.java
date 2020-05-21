@@ -12,6 +12,8 @@ public interface UsuarioDAO {
 	
 	public Usuario getUsuario(String cpfCnpj);
 	
+	public Usuario getUsuarioById(String idUsuario);
+	
 	public List<Usuario> listarUsuarios();
 	
 }

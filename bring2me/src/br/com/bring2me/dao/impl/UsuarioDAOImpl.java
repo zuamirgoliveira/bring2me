@@ -57,7 +57,44 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 					if (rs.next()) {
 						usr.setIdUsuario(rs.getString("id_usuario"));
 						usr.setCpfCnpj(rs.getString("cpf_cnpj"));
-						usr.setNomeRazaoSocial(rs.getString("razao_social"));
+						usr.setNomeRazaoSocial(rs.getString("nome_razao_social"));
+						usr.setTelefone(rs.getString("telefone"));
+						usr.setEmail(rs.getString("email"));
+						usr.setDtCriacao(dt.stringToDate(rs.getString("dt_criacao")));
+						usr.setDtAtualizacao(dt.stringToDate(rs.getString("dt_atualizacao")));
+						usr.setLogradouro(rs.getString("logradouro"));
+						usr.setNumero(rs.getString("numero"));
+						usr.setBairro(rs.getString("bairro"));
+						usr.setCidade(rs.getString("cidade"));
+						usr.setEstado(rs.getString("estado"));
+						usr.setCep(rs.getString("cep"));
+						usr.setComplemento(rs.getString("complemento"));
+					}
+				} catch (SQLException|DataAccessException e) {
+					//logger
+			
+				}
+				return usr;
+				
+			}
+		};
+		return jdbcTemplate.query(sql, extractor);
+	}
+	
+	@Override
+	public Usuario getUsuarioById(String idUsuario) {
+		String sql = "SELECT * FROM tb_usuario WHERE id_usuario = " + idUsuario;
+		
+		ResultSetExtractor<Usuario> extractor = new ResultSetExtractor<Usuario>() {
+			@Override
+			public Usuario extractData(ResultSet rs) {
+				Usuario usr = new Usuario();
+				DateUtils dt = new DateUtils();
+				try {
+					if (rs.next()) {
+						usr.setIdUsuario(rs.getString("id_usuario"));
+						usr.setCpfCnpj(rs.getString("cpf_cnpj"));
+						usr.setNomeRazaoSocial(rs.getString("nome_razao_social"));
 						usr.setTelefone(rs.getString("telefone"));
 						usr.setEmail(rs.getString("email"));
 						usr.setDtCriacao(dt.stringToDate(rs.getString("dt_criacao")));
