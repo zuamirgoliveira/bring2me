@@ -69,10 +69,10 @@
                   <form:input type="text" class="form-control" id="inputTelefone" placeholder="(00) 91111-1111" onkeypress="$(this).mask('(00) 00000-0000')" path="telefone"/>
                </div>
             </div>
-            <div class="form-group"> <!-- Date input -->
-		        <label class="control-label" for="inputDtNascimento">Date</label>
-		        <form:input class="form-control" id="inputDtNascimento" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" type="text" path="dtNascimento"/>
-		      </div>
+            <div class="form-group">
+               <label for="inputNomeRazaoSocial">Nome *</label>
+               <form:input type="text" class="form-control" id="inputNomeRazaoSocial" path="nomeRazaoSocial"/>
+            </div>
 
             <h4>Endereço</h4>
             <div class="mb-3">
@@ -82,6 +82,10 @@
             <div class="mb-3">
                <label class="control-label" for="inputLogradouro">Logradouro</label>
                <form:input type="text" class="form-control" id="inputLogradouro" path="logradouro"/>
+            </div>
+            <div class="form-group">
+               <label for="inputEmail">Email *</label>
+               <form:input type="text" class="form-control" id="inputEmail" path="inputEmail"/>
             </div>
             <div class="mb-3">
                <label for="inputNumero">Número</label>

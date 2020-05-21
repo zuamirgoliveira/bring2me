@@ -4,7 +4,6 @@ public class Login {
 	
 	private int idUsuario;
 	private String nmUsuario;
-	private String email;
 	private String senha;
 	
 	public Login() {}
@@ -19,14 +18,6 @@ public class Login {
 	
 	public void setNmUsuario(String nmUsuario) {
 		this.nmUsuario = nmUsuario;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	public String getSenha() {

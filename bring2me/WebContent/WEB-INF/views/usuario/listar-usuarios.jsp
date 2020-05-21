@@ -22,6 +22,7 @@
 						<th>Documento</th>
 						<th>Nome</th>
 						<th>Telefone</th>
+						<th>Email</th>
 						<th>Bairro</th>
 						<th>Cidade</th>
 						<th>Estado</th>
@@ -34,6 +35,7 @@
 						<td>${usuario.cpfCnpj}</td>
 						<td>${usuario.nomeRazaoSocial}</td>
 						<td>${usuario.telefone}</td>
+						<td>${usuario.email}</td>
 						<td>${usuario.bairro}</td>
 						<td>${usuario.cidade}</td>
 						<td>${usuario.estado}</td>

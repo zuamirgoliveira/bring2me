@@ -8,7 +8,7 @@ public class Usuario {
 	private String cpfCnpj;
 	private String nomeRazaoSocial;
 	private String telefone;
-	private Date dtNascimento;
+	private String email;
 	private Date dtCriacao;
 	private Date dtAtualizacao;
 	private String logradouro;
@@ -21,20 +21,20 @@ public class Usuario {
 	
 	public Usuario() {}
 
-	public Usuario(String idUsuario, String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao,
+	public Usuario(String idUsuario, String cpfCnpj, String nomeRazaoSocial, String telefone, String email, Date dtCriacao,
 			Date dtAtualizacao, String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
 	
-		this(cpfCnpj, nomeRazaoSocial, telefone, dtNascimento, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
+		this(cpfCnpj, nomeRazaoSocial, telefone, email, dtCriacao, dtAtualizacao, logradouro, numero, bairro,
 				cidade, estado, cep, complemento);
 		this.idUsuario = idUsuario;
 	}
 	
-	public Usuario(String cpfCnpj, String nomeRazaoSocial, String telefone, Date dtNascimento, Date dtCriacao, Date dtAtualizacao, 
+	public Usuario(String cpfCnpj, String nomeRazaoSocial, String telefone, String email, Date dtCriacao, Date dtAtualizacao, 
 			String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
 		this.cpfCnpj = cpfCnpj;
 		this.nomeRazaoSocial = nomeRazaoSocial;
 		this.telefone = telefone;
-		this.dtNascimento = dtNascimento;
+		this.email = email;
 		this.dtCriacao = dtCriacao;
 		this.dtAtualizacao = dtAtualizacao;
 		this.logradouro = logradouro;
@@ -79,12 +79,12 @@ public class Usuario {
 	}
 
 
-	public Date getDtNascimento() {
-		return dtNascimento;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setDtNascimento(Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getDtCriacao() {
@@ -162,7 +162,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", cpfCnpj=" + cpfCnpj + ", nomeRazaoSocial=" + nomeRazaoSocial
-				+ ", telefone1=" + telefone + ", dtNascimento=" + dtNascimento
+				+ ", telefone1=" + telefone + ", email=" + email
 				+ ", dtCriacao=" + dtCriacao + ", dtAtualizacao=" + dtAtualizacao + ", logradouro=" + logradouro
 				+ ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep="
 				+ cep + ", complemento=" + complemento + "]";

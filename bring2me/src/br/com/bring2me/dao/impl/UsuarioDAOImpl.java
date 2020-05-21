@@ -29,7 +29,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, dt_nascimento, dt_criacao, dt_atualizacao,"
 				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, SYSDATE(), ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		return jdbcTemplate.update(sql, usr.getCpfCnpj(), usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getDtNascimento(),
+		return jdbcTemplate.update(sql, usr.getCpfCnpj(), usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getEmail(),
 				usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
 				usr.getEstado(), usr.getCep(), usr.getComplemento());
 	}
@@ -39,7 +39,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		String sql = "UPDATE tb_usuario SET nome_razao_social = ?, telefone = ?, dt_nascimento = ?, dt_atualizacao = ?," + 
 				"logradouro = ?, numero = ?, bairro = ?, cidade = ?, estado = ?, cep = ?, complemento = ? WHERE cpf_cnpj = ?";
 		
-		return jdbcTemplate.update(sql, usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getDtNascimento(),
+		return jdbcTemplate.update(sql, usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getEmail(),
 				usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
 				usr.getEstado(), usr.getCep(), usr.getComplemento(), usr.getCpfCnpj());
 	}
@@ -59,7 +59,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 						usr.setCpfCnpj(rs.getString("cpf_cnpj"));
 						usr.setNomeRazaoSocial(rs.getString("razao_social"));
 						usr.setTelefone(rs.getString("telefone"));
-						usr.setDtNascimento(dt.stringToDate(rs.getString("dt_nascimento")));
+						usr.setEmail(rs.getString("email"));
 						usr.setDtCriacao(dt.stringToDate(rs.getString("dt_criacao")));
 						usr.setDtAtualizacao(dt.stringToDate(rs.getString("dt_atualizacao")));
 						usr.setLogradouro(rs.getString("logradouro"));
@@ -94,7 +94,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	       						rs.getString("cpf_cnpj"),
 	       						rs.getString("nome_razao_social"),
 	       						rs.getString("telefone"),
-	       						dt.stringToDate(rs.getString("dt_nascimento")),
+	       						rs.getString("email"),
 	       						dt.stringToDate(rs.getString("dt_criacao")),
 	       						dt.stringToDate(rs.getString("dt_atualizacao")),
 	       						rs.getString("logradouro"),

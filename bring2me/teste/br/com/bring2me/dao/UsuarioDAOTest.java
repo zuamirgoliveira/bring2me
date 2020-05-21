@@ -36,7 +36,7 @@ class UsuarioDAOTest {
 		usr.setNomeRazaoSocial("Zuamir Gutemberg");
 		usr.setCpfCnpj("08704534401");
 		usr.setTelefone("81982263905");
-		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
+		usr.setEmail("z@gmail.com");
 		usr.setDtCriacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
 		usr.setNumero("213");
@@ -64,7 +64,7 @@ class UsuarioDAOTest {
 		usr.setNomeRazaoSocial("Zuamir Gutemberg Vieira Candido de Oliveira");
 		usr.setCpfCnpj("08704534401");
 		usr.setTelefone("81982263902");
-		usr.setDtNascimento(dt.stringToDate("20/12/1989"));
+		usr.setEmail("z@gmail.com");
 		usr.setDtAtualizacao(dt.currentDate());
 		usr.setLogradouro("Avenida Dois");
 		usr.setNumero("213");
