@@ -2,7 +2,6 @@ package br.com.bring2me.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -26,7 +25,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int salvar(Usuario usr) {
 	
-		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, dt_nascimento, dt_criacao, dt_atualizacao,"
+		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao, dt_atualizacao,"
 				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, SYSDATE(), ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		return jdbcTemplate.update(sql, usr.getCpfCnpj(), usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getEmail(),
@@ -36,12 +35,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public int atualizar(Usuario usr) {
-		String sql = "UPDATE tb_usuario SET nome_razao_social = ?, telefone = ?, dt_nascimento = ?, dt_atualizacao = ?," + 
-				"logradouro = ?, numero = ?, bairro = ?, cidade = ?, estado = ?, cep = ?, complemento = ? WHERE cpf_cnpj = ?";
+		String sql = "UPDATE tb_usuario SET nome_razao_social = ?, telefone = ?, email = ?, dt_atualizacao = SYSDATE()," + 
+				"logradouro = ?, numero = ?, bairro = ?, cidade = ?, estado = ?, cep = ?, complemento = ? WHERE id_usuario = ?";
 		
 		return jdbcTemplate.update(sql, usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getEmail(),
-				usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
-				usr.getEstado(), usr.getCep(), usr.getComplemento(), usr.getCpfCnpj());
+				usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
+				usr.getEstado(), usr.getCep(), usr.getComplemento(), usr.getIdUsuario());
 	}
 
 	@Override
@@ -120,7 +119,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public List<Usuario> listarUsuarios() {
-		String sql = "SELECT * FROM tb_usuario";
+		String sql = "SELECT * FROM tb_usuario ORDER BY nome_razao_social ASC";
 		DateUtils dt = new DateUtils();
 		
 		return jdbcTemplate.query(

@@ -2,7 +2,6 @@ package br.com.bring2me.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -53,12 +52,13 @@ public class ItemDAOImpl implements ItemDAO {
 				Item item = new Item();
 				try {
 					if (rs.next()) {
+						item.setIdItem(rs.getString("id_item"));
 						item.setNome(rs.getString("nome"));
 						item.setDescricao(rs.getString("descricao"));
 						item.setQuantidade(Integer.parseInt(rs.getString("quantidade")));
 						item.setValor(Double.parseDouble(rs.getString("valor")));
 						item.setPeso(Double.parseDouble(rs.getString("peso")));
-						item.setIdMalote(Integer.parseInt(rs.getString("id_malote")));
+						item.setIdMalote(rs.getString("id_malote"));
 					}
 				} catch (SQLException|DataAccessException e) {
 					//logger
@@ -71,18 +71,19 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Item> listarItens() {
-		String sql = "SELECT * FROM tb_Item";
+		String sql = "SELECT * FROM tb_item ORDER BY id_malote ASC";
 		
 		return jdbcTemplate.query(
                 sql,
                 (rs, rowNum) ->
                        new Item(
+                    		   rs.getString("id_item"),
                     		   rs.getString("nome"),
                     		   rs.getString("descricao"),
                     		   Integer.parseInt(rs.getString("quantidade")),
                     		   Double.parseDouble(rs.getString("valor")),
                     		   Double.parseDouble(rs.getString("peso")),
-                    		   Integer.parseInt(rs.getString("id_malote"))
+                    		   rs.getString("id_malote")
                     		   )
                        );
 	}

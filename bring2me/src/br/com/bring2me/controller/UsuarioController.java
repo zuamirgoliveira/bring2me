@@ -40,13 +40,19 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
-		if(usuario.getIdUsuario() == null) {
-			usrDAO.salvar(usuario);			
-		} else {
-			usrDAO.atualizar(usuario);
-		}
+		ModelAndView model = new ModelAndView("redirect:/usuario");
 		
-		return new ModelAndView("redirect:/");
+		if(usuario.getIdUsuario().isEmpty() || usuario.getIdUsuario() == null) {
+			if(usrDAO.salvar(usuario) == 0) {
+				model.setViewName("usuario/form-usuarios");
+			}
+			
+		} else {
+			if(usrDAO.atualizar(usuario) == 0) {
+				model.setViewName("usuario/form-usuarios");
+			}
+		}
+		return model;
 	}
 	
 	@RequestMapping(value = "/editar", method = RequestMethod.GET)

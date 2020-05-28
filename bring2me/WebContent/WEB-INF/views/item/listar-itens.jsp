@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="resources/css/bring2me.css" rel="stylesheet">
-	<title>Usuários</title>	
+	<title>Itens</title>	
 	
 	</head>
 	<body>
@@ -21,33 +21,33 @@
 		    <table class="table">
 				    <thead>
 				      <tr>
-						<th>Documento</th>
 						<th>Nome</th>
-						<th>Telefone</th>
-						<th>Email</th>
-						<th>Bairro</th>
-						<th>Cidade</th>
-						<th>Estado</th>
+						<th>Descrição</th>
+						<th>Quantidade</th>
+						<th>Valor</th>
+						<th>Peso</th>
+						<th></th>
 						<th></th>
 				      </tr>
 				    </thead>
-				    <c:forEach items="${usuarioLista}" var="usuario">
+				    <c:forEach items="${itemLista}" var="item">
 				    <tbody>
 				      <tr>
-						<td>${usuario.cpfCnpj}</td>
-						<td>${usuario.nomeRazaoSocial}</td>
-						<td>${usuario.telefone}</td>
-						<td>${usuario.email}</td>
-						<td>${usuario.bairro}</td>
-						<td>${usuario.cidade}</td>
-						<td>${usuario.estado}</td>
-						<td><a href="/bring2me/editar?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<td>${item.nome}</td>
+						<td>${item.descricao}</td>
+						<td>${item.quantidade}</td>
+						<td>${item.valor}</td>
+						<td>${item.peso}</td>
+						<td><a href="/bring2me/editar?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<c:if test="${not empty item.idMalote}">
+							<td><a href="/bring2me/deletar?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
+						</c:if>
 				      </tr>
 				    </c:forEach>
 				  </table>
 			  <div id="btn" class="row">
-			  	<a href="/bring2me/home" id="voltarBtn" class="btn">Voltar</a>
-				<a href="/bring2me/novoUsuario" id="novoBtn" class="btn">Novo Usuário</a>
+			  	<a href="/bring2me/home" id="voltarBtn" class="btn" style="margin:5px">Voltar</a>
+				<a href="/bring2me/novoUsuario" id="novoBtn" class="btn" style="margin:5px">Novo Item</a>
 			</div>
 	    </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -2,23 +2,23 @@ package br.com.bring2me.model;
 
 public class Item {
 	
-	private int idItem;
+	private String idItem;
 	private String nome;
 	private String descricao;
 	private int quantidade;
 	private double valor;
 	private double peso;
-	private int idMalote;
+	private String idMalote;
 	
 	public Item() {}
 
-	public Item(int idItem, String nome, String descricao, int quantidade, double valor, double peso, int idMalote) {
+	public Item(String idItem, String nome, String descricao, int quantidade, double valor, double peso, String idMalote) {
 		
 		this(nome, descricao, quantidade, valor, peso, idMalote);
 		this.idItem = idItem;
 	}
 	
-	public Item(String nome, String descricao, int quantidade, double valor, double peso, int idMalote) {		
+	public Item(String nome, String descricao, int quantidade, double valor, double peso, String idMalote) {		
 		this.nome = nome;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
@@ -27,11 +27,11 @@ public class Item {
 		this.idMalote = idMalote;
 	}
 
-	public int getIdItem() {
+	public String getIdItem() {
 		return idItem;
 	}
 
-	public void setIdItem(int idItem) {
+	public void setIdItem(String idItem) {
 		this.idItem = idItem;
 	}
 
@@ -75,11 +75,11 @@ public class Item {
 		this.peso = peso;
 	}
 
-	public int getIdMalote() {
+	public String getIdMalote() {
 		return idMalote;
 	}
 
-	public void setIdMalote(int idMalote) {
+	public void setIdMalote(String idMalote) {
 		this.idMalote = idMalote;
 	}
 
