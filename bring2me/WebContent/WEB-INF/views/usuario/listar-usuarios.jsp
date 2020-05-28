@@ -41,13 +41,13 @@
 						<td>${usuario.bairro}</td>
 						<td>${usuario.cidade}</td>
 						<td>${usuario.estado}</td>
-						<td><a href="/bring2me/editar?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<td><a href="/bring2me/editar-usuario?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
 				      </tr>
 				    </c:forEach>
 				  </table>
 			  <div id="btn" class="row">
 			  	<a href="/bring2me/home" id="voltarBtn" class="btn">Voltar</a>
-				<a href="/bring2me/novoUsuario" id="novoBtn" class="btn">Novo Usuário</a>
+				<a href="/bring2me/novo-usuario" id="novoBtn" class="btn">Novo Usuário</a>
 			</div>
 	    </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

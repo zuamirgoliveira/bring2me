@@ -38,7 +38,7 @@
 						<td>${item.quantidade}</td>
 						<td>${item.valor}</td>
 						<td>${item.peso}</td>
-						<td><a href="/bring2me/editar?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<td><a href="/bring2me/editar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
 						<c:if test="${not empty item.idMalote}">
 							<td><a href="/bring2me/deletar?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
 						</c:if>
@@ -47,7 +47,7 @@
 				  </table>
 			  <div id="btn" class="row">
 			  	<a href="/bring2me/home" id="voltarBtn" class="btn" style="margin:5px">Voltar</a>
-				<a href="/bring2me/novoUsuario" id="novoBtn" class="btn" style="margin:5px">Novo Item</a>
+				<a href="/bring2me/novo-item" id="novoBtn" class="btn" style="margin:5px">Novo Item</a>
 			</div>
 	    </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

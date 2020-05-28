@@ -25,14 +25,14 @@ public class ItemDAOImpl implements ItemDAO {
 	public int salvar(Item item) {
 		String sql = "INSERT INTO tb_item (nome, descricao, quantidade, valor, peso) VALUES (?, ?, ?, ?, ?)";
 		
-		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), item.getQuantidade(), item.getPeso(), item.getValor());
+		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), Integer.parseInt(item.getQuantidade()), Double.parseDouble(item.getValor()), Double.parseDouble(item.getPeso()));
 	}
 
 	@Override
 	public int atualizar(Item item) {
-		String sql = "UPDATE tb_item SET nome = ?, descricao = ?, quantidade = ?, peso = ?, valor = ? WHERE id_item = ?";
+		String sql = "UPDATE tb_item SET nome = ?, descricao = ?, quantidade = ?, valor = ?, peso = ? WHERE id_item = ?";
 		
-		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), item.getQuantidade(), item.getPeso(), item.getValor());
+		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), Integer.parseInt(item.getQuantidade()), Double.parseDouble(item.getValor()), Double.parseDouble(item.getPeso()));
 	}
 	
 	@Override
@@ -55,9 +55,9 @@ public class ItemDAOImpl implements ItemDAO {
 						item.setIdItem(rs.getString("id_item"));
 						item.setNome(rs.getString("nome"));
 						item.setDescricao(rs.getString("descricao"));
-						item.setQuantidade(Integer.parseInt(rs.getString("quantidade")));
-						item.setValor(Double.parseDouble(rs.getString("valor")));
-						item.setPeso(Double.parseDouble(rs.getString("peso")));
+						item.setQuantidade(rs.getString("quantidade"));
+						item.setValor(rs.getString("valor"));
+						item.setPeso(rs.getString("peso"));
 						item.setIdMalote(rs.getString("id_malote"));
 					}
 				} catch (SQLException|DataAccessException e) {
@@ -80,9 +80,9 @@ public class ItemDAOImpl implements ItemDAO {
                     		   rs.getString("id_item"),
                     		   rs.getString("nome"),
                     		   rs.getString("descricao"),
-                    		   Integer.parseInt(rs.getString("quantidade")),
-                    		   Double.parseDouble(rs.getString("valor")),
-                    		   Double.parseDouble(rs.getString("peso")),
+                    		   rs.getString("quantidade"),
+                    		   rs.getString("valor"),
+                    		   rs.getString("peso"),
                     		   rs.getString("id_malote")
                     		   )
                        );

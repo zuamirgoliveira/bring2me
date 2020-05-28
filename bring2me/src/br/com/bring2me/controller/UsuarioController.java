@@ -29,7 +29,7 @@ public class UsuarioController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/novoUsuario", method = RequestMethod.GET)
+	@RequestMapping(value = "/novo-usuario", method = RequestMethod.GET)
 	public ModelAndView novoUsuario(ModelAndView model) {
 		model.setViewName("usuario/form-usuarios");
 		Usuario novoUsuario = new Usuario();
@@ -38,7 +38,7 @@ public class UsuarioController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
+	@RequestMapping(value = "/salvar-usuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
 		ModelAndView model = new ModelAndView("redirect:/usuario");
 		
@@ -55,7 +55,7 @@ public class UsuarioController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/editar", method = RequestMethod.GET)
+	@RequestMapping(value = "/editar-usuario", method = RequestMethod.GET)
 	public ModelAndView editarUsuario(HttpServletRequest request) {
 		String id = request.getParameter("id");
 		Usuario usuario = usrDAO.getUsuarioById(id);

@@ -56,7 +56,7 @@
             	<img class="mb-2" id="logoBox" src="resources/imagens/icon/Bring2Me-Azul-B-logo.png" alt="" width="50%" height="50%">
             </a>
          </div>
-         <form:form action="salvar" method="post" modelAttribute="usuario">
+         <form:form action="salvar-usuario" method="post" modelAttribute="usuario">
             <div>
                <h4>Dados pessoais</h4>
             </div>

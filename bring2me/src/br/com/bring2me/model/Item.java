@@ -5,20 +5,20 @@ public class Item {
 	private String idItem;
 	private String nome;
 	private String descricao;
-	private int quantidade;
-	private double valor;
-	private double peso;
+	private String quantidade;
+	private String valor;
+	private String peso;
 	private String idMalote;
 	
 	public Item() {}
 
-	public Item(String idItem, String nome, String descricao, int quantidade, double valor, double peso, String idMalote) {
+	public Item(String idItem, String nome, String descricao, String quantidade, String valor, String peso, String idMalote) {
 		
 		this(nome, descricao, quantidade, valor, peso, idMalote);
 		this.idItem = idItem;
 	}
 	
-	public Item(String nome, String descricao, int quantidade, double valor, double peso, String idMalote) {		
+	public Item(String nome, String descricao, String quantidade, String valor, String peso, String idMalote) {		
 		this.nome = nome;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
@@ -51,27 +51,27 @@ public class Item {
 		this.descricao = descricao;
 	}
 
-	public int getQuantidade() {
+	public String getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public double getValor() {
+	public String getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(String valor) {
 		this.valor = valor;
 	}
 
-	public double getPeso() {
+	public String getPeso() {
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(String peso) {
 		this.peso = peso;
 	}
 
