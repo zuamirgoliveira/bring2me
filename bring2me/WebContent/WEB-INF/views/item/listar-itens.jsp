@@ -39,8 +39,8 @@
 						<td>${item.valor}</td>
 						<td>${item.peso}</td>
 						<td><a href="/bring2me/editar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
-						<c:if test="${not empty item.idMalote}">
-							<td><a href="/bring2me/deletar?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
+						<c:if test="${empty item.idMalote}">
+							<td><a href="/bring2me/deletar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
 						</c:if>
 				      </tr>
 				    </c:forEach>

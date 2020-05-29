@@ -36,14 +36,14 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	
 	@Override
-	public int deletar(int item) {
+	public int deletar(String item) {
 		String sql = "DELETE FROM tb_item WHERE id_item = ?";
 		
 		return jdbcTemplate.update(sql, item);
 	}
 
 	@Override
-	public Item buscarItem(int idItem) {
+	public Item buscarItem(String idItem) {
 		String sql = "SELECT * FROM tb_item WHERE id_item = " + idItem;
 		
 		ResultSetExtractor<Item> extractor = new ResultSetExtractor<Item>() {
@@ -71,7 +71,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Item> listarItens() {
-		String sql = "SELECT * FROM tb_item ORDER BY id_malote ASC";
+		String sql = "SELECT * FROM tb_item ORDER BY id_item DESC";
 		
 		return jdbcTemplate.query(
                 sql,

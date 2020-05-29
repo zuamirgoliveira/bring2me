@@ -10,9 +10,9 @@ public interface ItemDAO {
 	
 	public int atualizar(Item item);
 	
-	public int deletar(int idItem);
+	public int deletar(String idItem);
 	
-	public Item buscarItem(int idItem);
+	public Item buscarItem(String idItem);
 	
 	public List<Item> listarItens();
 	

@@ -69,7 +69,7 @@
             </div>
 
             <div id="btn" class="row">
-	            <a href="/bring2me/item" id="cancelarBtn" class="btn">Cancelar</a>
+	            <a href="/bring2me/itens" id="cancelarBtn" class="btn">Cancelar</a>
 	            <button type="submit" id="salvarBtn" class="btn btn-primary">Salvar</button>
             </div>
          </form:form>

@@ -40,7 +40,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/salvar-item", method = RequestMethod.POST)
 	public ModelAndView salvarItem(@ModelAttribute Item item) {
-		ModelAndView model = new ModelAndView("redirect:/item");
+		ModelAndView model = new ModelAndView("redirect:/itens");
 		
 		if(item.getIdItem().isEmpty() || item.getIdItem() == null) {
 			if(itenDAO.salvar(item) == 0) {
@@ -57,7 +57,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/editar-item", method = RequestMethod.GET)
 	public ModelAndView editarItem(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		Item item = itenDAO.buscarItem(id);
 		
 		ModelAndView model = new ModelAndView();
@@ -68,12 +68,9 @@ public class ItemController {
 	
 	@RequestMapping(value = "/deletar-item", method = RequestMethod.GET)
 	public ModelAndView deletarItem(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		int item = itenDAO.deletar(id);
 		
-		ModelAndView model = new ModelAndView();
-		model.setViewName("item/listar-itens");
-		return model;
+		return new ModelAndView("redirect:/itens");
 	}
-
 }
