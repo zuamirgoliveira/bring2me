@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,27 +9,29 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link href="resources/css/login.css" rel="stylesheet">
+		<link href="resources/css/bring2me.css" rel="stylesheet">
 	
 		<title>Bring2Me</title>	
 	</head>
 	<body class="text-center">
 		<div class="bgHome text-white rounded">
 			 <div class="home px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-		      <img class="mb-2" id="logoBox" src="resources/imagens/3d-gray-cubo.png" alt="" width="150" height="150">
-		      <h1 class="display-4" id="titleText">Bring2Me</h1>
+		      <a href="/bring2me/home" id="imgHomeBtn">
+            	<img class="mb-2" id="logoBox" src="resources/imagens/icon/Bring2Me-Azul-B-logo.png" alt="" width="25%" height="25%">
+            </a>
 		    </div>
 		    
-		    <form class="form-signin">
-		      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		    <form:form class="form-signin" action="signin" method="post" modelAttribute="login">
+		      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 		      <label for="inputEmail" class="sr-only">Email address</label>
-		      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		      <form:input type="email" id="inputEmail" class="form-control" placeholder="Email address" path="email"/>
 		      <label for="inputPassword" class="sr-only">Password</label>
-		      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		      <form:input type="password" id="inputPassword" class="form-control" placeholder="Password" path="senha"/>
 		      <div class="checkbox mb-3">
 		      </div>
-		      <button id="btnEntrar" class="btn" type="submit">Sign in</button>
+		      <button id="btnEntrar" class="btn" type="submit">Entrar</button>
 		      <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-		    </form>
+		    </form:form>
 	    </div>
 	    
 	    

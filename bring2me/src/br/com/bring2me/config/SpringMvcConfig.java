@@ -16,10 +16,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.bring2me.dao.ItemDAO;
+import br.com.bring2me.dao.LoginDAO;
 import br.com.bring2me.dao.MaloteDAO;
 import br.com.bring2me.dao.TramiteDAO;
 import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.dao.impl.ItemDAOImpl;
+import br.com.bring2me.dao.impl.LoginDAOImpl;
 import br.com.bring2me.dao.impl.MaloteDAOImpl;
 import br.com.bring2me.dao.impl.TramiteDAOImpl;
 import br.com.bring2me.dao.impl.UsuarioDAOImpl;
@@ -67,6 +69,11 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 	@Bean
 	public TramiteDAO getTramiteDAO() {
 		return new TramiteDAOImpl(getDataSource());
+	}
+	
+	@Bean
+	public LoginDAO getLoginDAO() {
+		return new LoginDAOImpl(getDataSource());
 	}
 	
 	@Bean

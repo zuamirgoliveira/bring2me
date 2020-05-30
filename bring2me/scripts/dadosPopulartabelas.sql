@@ -11,17 +11,17 @@ INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao
 INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao, logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES ('70680577000177', 'Auto Car peças e acessórios', '81993443047', 'autocar_oficial@hotmail.com', CAST('2019,3,20 15,59,00' AS DATE), 'Rua Arcelina', '529', 'Tejipió', 'Recife', 'PE', '50920750', 'Casa');
 INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao, logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES ('57517230000140', 'Moto Brasil', '81993443047', 'motobrasilpecas@gmail.com', CAST('2019,3,31 23,59,00' AS DATE), 'Rua Arcelina', '529', 'Tejipió', 'Recife', 'PE', '50920750', 'Casa');
 #TB_LOGIN
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('1', 'zuamirgutemberg', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('2', 'calebtpr', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('3', 'mariah.sabrina', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('4', 'campossophia33', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('5', 'rodrigogfernandes', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('6', 'oliverlkr', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('7', 'agathamelo123', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('8', 'gbrielaalvez', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('9', 'vieirabolsascomercial', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('10', 'autocaroficial', '123456');
-INSERT INTO tb_login (id_usuario, nm_usuario, senha) VALUES ('11', 'motobrasilpecas', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('1', 'zuamirgutemberg', 'zuamirgutemberg@gmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('2', 'calebtpr', 'calebtpr@gmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('3', 'mariah.sabrina', 'mariah1990@outlook.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('4', 'campossophia33', 'campossophia33@hotmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('5', 'rodrigogfernandes', 'rfernandes@gmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('6', 'oliverlkr', 'lkr@hotmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('7', 'agathamelo123', 'agathamelo123@yahool.com.br', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('8', 'gbrielaalvez', 'gbrielaalvez@uol.com.br', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('9', 'vieirabolsascomercial', 'vieira.bolsas.comercial@gmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('10', 'autocaroficial', 'autocar_oficial@hotmail.com', '123456');
+INSERT INTO tb_login (id_login, nm_usuario, email, senha) VALUES ('11', 'motobrasilpecas', 'motobrasilpecas@gmail.com', '123456');
 #TB_MALOTE
 INSERT INTO tb_malote (id_malote, status, codigo_rastreio, tp_transporte, id_usr_remetente, id_usr_destinatario) VALUES (34356, 'ENTREGUE', 'PW189603444BR', 'CORREIOS', 11, 1);
 INSERT INTO tb_malote (status, codigo_rastreio, tp_transporte, id_usr_remetente, id_usr_destinatario) VALUES ('ENVIADO', 'PW179603445BR', 'CORREIOS', 10, 1);

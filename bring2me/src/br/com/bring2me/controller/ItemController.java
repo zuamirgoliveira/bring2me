@@ -22,7 +22,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/itens")
 	public ModelAndView listarItems(ModelAndView model) {
-		model.setViewName("item/listar-itens");
+		model.setViewName("item/index");
 		List<Item> itemLista = itenDAO.listarItens();
 		model.addObject("itemLista", itemLista);
 		

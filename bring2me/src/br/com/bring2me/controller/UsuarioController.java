@@ -22,7 +22,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/usuario")
 	public ModelAndView listarUsuarios(ModelAndView model) {
-		model.setViewName("usuario/listar-usuarios");
+		model.setViewName("usuario/index");
 		List<Usuario> usuarioLista = usrDAO.listarUsuarios();
 		model.addObject("usuarioLista", usuarioLista);
 		

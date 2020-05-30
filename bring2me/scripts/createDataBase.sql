@@ -107,20 +107,14 @@ COMMENT = 'Tabela para manter dados dos produtos que serão disponibilizados par
 DROP TABLE IF EXISTS `bring2medb`.`tb_login` ;
 
 CREATE TABLE IF NOT EXISTS `bring2medb`.`tb_login` (
-  `id_usuario` INT(11) NOT NULL,
+  `id_login` INT(11) NOT NULL,
   `nm_usuario` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
   `senha` VARCHAR(100) NOT NULL,
-  INDEX `fk_id_usuario_usr_idx` (`id_usuario` ASC),
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC),
-  CONSTRAINT `fk_id_usuario`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `bring2medb`.`tb_usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_login`),
+  UNIQUE INDEX `id_login` (`id_login` ASC))
 ENGINE = InnoDB
 COMMENT = 'Tabela para manter dados de login do usuário.';
-
 
 -- -----------------------------------------------------
 -- Table `bring2medb`.`tb_tramite`

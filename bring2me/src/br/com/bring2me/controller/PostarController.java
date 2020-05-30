@@ -9,7 +9,7 @@ public class PostarController {
 	
 	@RequestMapping(value = "/malote")
 	public ModelAndView listarMalote(ModelAndView model) {
-		model.setViewName("postar-pages/listar-malotes");
+		model.setViewName("postar-pages/index");
 		model.addObject("message", "Hello World!!");
 		
 		return model;
