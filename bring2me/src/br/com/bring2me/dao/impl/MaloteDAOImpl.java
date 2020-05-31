@@ -59,14 +59,15 @@ public class MaloteDAOImpl implements MaloteDAO {
 				DateUtils dt = new DateUtils();
 				try {
 					if (rs.next()) {
+						malote.setStatus(rs.getString("id_malote"));
 						malote.setStatus(rs.getString("status"));
 						malote.setDtPostagem(dt.stringToDate(rs.getString("dt_postagem")));
 						malote.setDtPrevEntrega(dt.stringToDate(rs.getString("dt_prev_entrega")));
 						malote.setDtEntrega(dt.stringToDate(rs.getString("dt_entrega")));
 						malote.setCodigoRastreio(rs.getString("codigo_rastreio"));
 						malote.setTpTransporte(rs.getString("tp_transporte"));
-						malote.setIdUsrRemetente(Integer.parseInt(rs.getString("id_usr_remetente")));
-						malote.setIdUsrDestinatario(Integer.parseInt(rs.getString("id_usr_destinatario")));
+						malote.setIdUsrRemetente(rs.getString("id_usr_remetente"));
+						malote.setIdUsrDestinatario(rs.getString("id_usr_destinatario"));
 					}
 				} catch (SQLException|DataAccessException e) {
 					//logger
@@ -79,21 +80,22 @@ public class MaloteDAOImpl implements MaloteDAO {
 
 	@Override
 	public List<Malote> listarMalotes() {
-		String sql = "SELECT * FROM tb_Malote";
+		String sql = "SELECT * FROM tb_malote WHERE status NOT IN ('ENTREGUE') ORDER BY id_malote DESC";
 		DateUtils dt = new DateUtils();
 		
 		return jdbcTemplate.query(
                 sql,
                 (rs, rowNum) ->
                        new Malote(
+                    		   rs.getString("id_malote"),
                     		   rs.getString("status"),
                     		   dt.stringToDate(rs.getString("dt_postagem")),
                     		   dt.stringToDate(rs.getString("dt_prev_entrega")),
                     		   dt.stringToDate(rs.getString("dt_entrega")),
                     		   rs.getString("codigo_rastreio"),
                     		   rs.getString("tp_transporte"),
-                    		   Integer.parseInt(rs.getString("id_usr_remetente")),
-                    		   Integer.parseInt(rs.getString("id_usr_destinatario"))
+                    		   rs.getString("id_usr_remetente"),
+                    		   rs.getString("id_usr_destinatario")
                     		   )
                        );
 	}

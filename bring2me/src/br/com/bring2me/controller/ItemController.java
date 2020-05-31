@@ -69,7 +69,7 @@ public class ItemController {
 	@RequestMapping(value = "/deletar-item", method = RequestMethod.GET)
 	public ModelAndView deletarItem(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		int item = itenDAO.deletar(id);
+		itenDAO.deletar(id);
 		
 		return new ModelAndView("redirect:/itens");
 	}

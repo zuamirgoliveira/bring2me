@@ -37,11 +37,9 @@
 						<td>${item.descricao}</td>
 						<td>${item.quantidade}</td>
 						<td>${item.valor}</td>
-						<td>${item.peso}</td>
+						<td>${item.peso}</td>				
 						<td><a href="/bring2me/editar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
-						<c:if test="${empty item.idMalote}">
-							<td><a href="/bring2me/deletar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
-						</c:if>
+						<td><a href="/bring2me/deletar-item?id=${item.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
 				      </tr>
 				    </c:forEach>
 				  </table>

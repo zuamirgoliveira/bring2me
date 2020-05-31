@@ -71,7 +71,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Item> listarItens() {
-		String sql = "SELECT * FROM tb_item ORDER BY id_item DESC";
+		String sql = "SELECT * FROM tb_item WHERE id_malote IS NULL ORDER BY id_item DESC";
 		
 		return jdbcTemplate.query(
                 sql,

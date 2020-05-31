@@ -1,30 +1,35 @@
 package br.com.bring2me.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Malote {
 	
-	private int idMalote;
+	private String idMalote;
 	private String status;
 	private Date dtPostagem;
 	private Date dtPrevEntrega;
 	private Date dtEntrega;
 	private String codigoRastreio;
 	private String tpTransporte;
-	private int idUsrRemetente;
-	private int idUsrDestinatario;
+	private String idUsrRemetente;
+	private String idUsrDestinatario;
 	
+	private Usuario remetente;
+	private Usuario destinatario;
+	private List<Item> itens;
+
 	public Malote() {}
 
-	public Malote(int idMalote, String status, Date dtPostagem, Date dtPrevEntrega, Date dtEntrega,
-			String codigoRastreio, String tpTransporte, int idUsrRemetente, int idUsrDestinatario) {
+	public Malote(String idMalote, String status, Date dtPostagem, Date dtPrevEntrega, Date dtEntrega,
+			String codigoRastreio, String tpTransporte, String idUsrRemetente, String idUsrDestinatario) {
 		
 		this(status, dtPostagem, dtPrevEntrega, dtEntrega, codigoRastreio, tpTransporte, idUsrRemetente, idUsrDestinatario);
 		this.idMalote = idMalote;
 	}
 	
 	public Malote(String status, Date dtPostagem, Date dtPrevEntrega, Date dtEntrega,
-			String codigoRastreio, String tpTransporte, int idUsrRemetente, int idUsrDestinatario) {
+			String codigoRastreio, String tpTransporte, String idUsrRemetente, String idUsrDestinatario) {
 		
 		this.status = status;
 		this.dtPostagem = dtPostagem;
@@ -34,13 +39,14 @@ public class Malote {
 		this.tpTransporte = tpTransporte;
 		this.idUsrRemetente = idUsrRemetente;
 		this.idUsrDestinatario = idUsrDestinatario;
+		
 	}
 
-	public int getIdMalote() {
+	public String getIdMalote() {
 		return idMalote;
 	}
 
-	public void setIdMalote(int idMalote) {
+	public void setIdMalote(String idMalote) {
 		this.idMalote = idMalote;
 	}
 
@@ -92,20 +98,44 @@ public class Malote {
 		this.tpTransporte = tpTransporte;
 	}
 
-	public int getIdUsrRemetente() {
+	public String getIdUsrRemetente() {
 		return idUsrRemetente;
 	}
 
-	public void setIdUsrRemetente(int idUsrRemetente) {
+	public void setIdUsrRemetente(String idUsrRemetente) {
 		this.idUsrRemetente = idUsrRemetente;
 	}
 
-	public int getIdUsrDestinatario() {
+	public String getIdUsrDestinatario() {
 		return idUsrDestinatario;
 	}
 
-	public void setIdUsrDestinatario(int idUsrDestinatario) {
+	public void setIdUsrDestinatario(String idUsrDestinatario) {
 		this.idUsrDestinatario = idUsrDestinatario;
+	}
+	
+	public Usuario getRemetente() {
+		return remetente;
+	}
+
+	public void setRemetente(Usuario remetente) {
+		this.remetente = remetente;
+	}
+
+	public Usuario getDestinatario() {
+		return destinatario;
+	}
+
+	public void setDestinatario(Usuario destinatario) {
+		this.destinatario = destinatario;
+	}
+
+	public List<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
 	}
 
 	@Override
