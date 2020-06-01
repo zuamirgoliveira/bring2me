@@ -42,14 +42,14 @@ public class MaloteDAOImpl implements MaloteDAO {
 	}
 	
 	@Override
-	public int deletar(int malote) {
+	public int deletar(String malote) {
 		String sql = "DELETE FROM tb_malote WHERE id_malote = ?";
 		
 		return jdbcTemplate.update(sql, malote);
 	}
 
 	@Override
-	public Malote buscarMalote(int idMalote) {
+	public Malote buscarMalote(String idMalote) {
 		String sql = "SELECT * FROM tb_malote WHERE id_malote = " + idMalote;
 		
 		ResultSetExtractor<Malote> extractor = new ResultSetExtractor<Malote>() {

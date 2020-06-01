@@ -10,9 +10,9 @@ public interface MaloteDAO {
 	
 	public int atualizar(Malote malote);
 	
-	public int deletar(int idMalote);
+	public int deletar(String idMalote);
 	
-	public Malote buscarMalote(int idMalote);
+	public Malote buscarMalote(String idMalote);
 	
 	public List<Malote> listarMalotes();
 	

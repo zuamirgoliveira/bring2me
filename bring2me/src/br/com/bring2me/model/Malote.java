@@ -17,7 +17,8 @@ public class Malote {
 	
 	private Usuario remetente;
 	private Usuario destinatario;
-	private List<Item> itens;
+	
+	String[] itens; 
 
 	public Malote() {}
 
@@ -129,15 +130,15 @@ public class Malote {
 	public void setDestinatario(Usuario destinatario) {
 		this.destinatario = destinatario;
 	}
-
-	public List<Item> getItens() {
+	
+	public String[] getItens() {
 		return itens;
 	}
 
-	public void setItens(List<Item> itens) {
+	public void setDestinatario(String[] itens) {
 		this.itens = itens;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Malote [idMalote=" + idMalote + ", status=" + status + ", dtPostagem=" + dtPostagem + ", dtPrevEntrega="

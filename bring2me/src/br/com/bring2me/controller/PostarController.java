@@ -2,15 +2,21 @@ package br.com.bring2me.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bring2me.dao.ItemDAO;
 import br.com.bring2me.dao.MaloteDAO;
 import br.com.bring2me.dao.UsuarioDAO;
+import br.com.bring2me.model.Item;
 import br.com.bring2me.model.Malote;
+import br.com.bring2me.model.Usuario;
 
 @Controller
 public class PostarController {
@@ -47,9 +53,39 @@ public class PostarController {
 	@RequestMapping(value = "/novo-malote")
 	public ModelAndView formMalote(ModelAndView model) {
 		model.setViewName("postar/form-malote");
-		model.addObject("message", "Hello World!!");
 		
+		List<Usuario> usuarios = usrDAO.listarUsuarios();
+		List<Item> itens = itDAO.listarItens();
+		Malote malote = new Malote();
+		
+		model.addObject("malote", malote);
+		model.addObject("usuarios", usuarios);
+		model.addObject("itens", itens);
 		return model;
+	}
+	
+	@RequestMapping(value = "/salvar-malote", method = RequestMethod.POST)
+	public ModelAndView salvarMalote(@ModelAttribute Malote malote) {
+		ModelAndView model = new ModelAndView("redirect:/postar");
+		
+		if(malote.getIdMalote().isEmpty() || malote.getIdMalote() == null) {
+			if(malDAO.salvar(malote) == 0) {
+				model.setViewName("item/form-malote");
+			}
+			
+		} else {
+			if(malDAO.atualizar(malote) == 0) {
+				model.setViewName("item/form-malote");
+			}
+		}
+		return model;
+	}
+	
+	@RequestMapping(value = "/deletar-malote", method = RequestMethod.GET)
+	public ModelAndView deletarMalote(HttpServletRequest request) {
+		malDAO.deletar(request.getParameter("id"));
+		
+		return new ModelAndView("redirect:/postar");
 	}
 
 }
