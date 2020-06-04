@@ -17,6 +17,7 @@ import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Item;
 import br.com.bring2me.model.Malote;
 import br.com.bring2me.model.Usuario;
+import net.bytebuddy.agent.builder.AgentBuilder.InitializationStrategy.SelfInjection.Split;
 
 @Controller
 public class PostarController {
@@ -87,5 +88,31 @@ public class PostarController {
 		
 		return new ModelAndView("redirect:/postar");
 	}
+	
+	@RequestMapping(value = "/gerar-etiqueta", method = RequestMethod.GET)
+	public ModelAndView gerarEtiqueta(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("postar/etiqueta");
+		Malote mal = malDAO.buscarMalote(request.getParameter("id"));
+		
+		Usuario destinatario = usrDAO.getUsuarioById(mal.getIdUsrDestinatario());
+		model.addObject("nomeDest", destinatario.getNomeRazaoSocial().toUpperCase());
+		model.addObject("cepDest", destinatario.getCep());
+		model.addObject("logradouroDest", destinatario.getLogradouro());
+		model.addObject("numeroDest", destinatario.getNumero());
+		model.addObject("bairroDest", destinatario.getBairro());
+		model.addObject("cidadeDest", destinatario.getCidade());
+		model.addObject("estadoDest", destinatario.getEstado());
+		model.addObject("complementoDest", destinatario.getComplemento());
 
+		Usuario remetente = usrDAO.getUsuarioById(mal.getIdUsrRemetente());
+		model.addObject("nomeReme", remetente.getNomeRazaoSocial().toUpperCase());
+		model.addObject("cepReme", remetente.getCep());
+		model.addObject("logradouroReme", remetente.getLogradouro());
+		model.addObject("numeroReme", remetente.getNumero());
+		model.addObject("bairroReme", remetente.getBairro());
+		model.addObject("cidadeReme", remetente.getCidade());
+		model.addObject("estadoReme", remetente.getEstado());
+		model.addObject("complementoReme", remetente.getComplemento());
+		return model;
+	}
 }

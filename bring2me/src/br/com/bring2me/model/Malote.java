@@ -18,7 +18,9 @@ public class Malote {
 	private Usuario remetente;
 	private Usuario destinatario;
 	
-	String[] itens; 
+	private String[] itens; 
+	
+	private String etiqueta;
 
 	public Malote() {}
 
@@ -137,6 +139,14 @@ public class Malote {
 
 	public void setDestinatario(String[] itens) {
 		this.itens = itens;
+	}
+	
+	public String getEtiqueta() {
+		return etiqueta;
+	}
+
+	public void setEtiqueta(String etiqueta) {
+		this.etiqueta = etiqueta;
 	}
 	
 	@Override

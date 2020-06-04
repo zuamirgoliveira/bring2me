@@ -9,7 +9,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="resources/css/bring2me.css" rel="stylesheet">
 	<title>Usuários</title>	
-	
+	<script type="text/javascript">
+		$(function () {
+			  $('[data-toggle="tooltip"]').tooltip()
+			})
+	</script>
 	</head>
 	<body>
 		<div class="bgHome p-3 p-md-5 rounded">
@@ -41,7 +45,7 @@
 						<td>${usuario.bairro}</td>
 						<td>${usuario.cidade}</td>
 						<td>${usuario.estado}</td>
-						<td><a href="/bring2me/editar-usuario?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
+						<td><a href="/bring2me/editar-usuario?id=${usuario.idUsuario}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Editar"></a></td>
 				      </tr>
 				    </c:forEach>
 				  </table>

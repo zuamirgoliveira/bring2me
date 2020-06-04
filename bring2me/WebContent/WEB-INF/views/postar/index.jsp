@@ -10,14 +10,29 @@
 	<link href="resources/css/bring2me.css" rel="stylesheet">
 	<title>Malotes</title>	
 	
+	<script type="text/javascript">
+		function tolltip() {
+			  $('[data-toggle="tooltip"]').tooltip()
+			};
+		
+		function gerarPDF(etiqueta) {	
+			var doc = new jsPDF();
+			doc.text(20, 20, ''+etiqueta);
+			
+			doc.save('Teste.pdf');
+			
+		};
+	</script>
+	
 	</head>
-	<body>
+	<body id="target">
 		<div class="bgHome p-3 p-md-5 rounded">
 			<div class="home-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 				<a href="/bring2me/home" id="imgHomeBtn">
 			    	<img class="mb-2" id="logoBox" src="resources/imagens/icon/Bring2Me-Azul-B-logo.png" alt="" width="50%" height="50%">
 			    </a>
 			  </div>
+			  <p>${etiqueta}</p>
 		    <table class="table">
 				    <thead>
 				      <tr>
@@ -29,6 +44,7 @@
 						<th>Data Postagem</th>
 						<th>Data prevista</th>
 						<th>Data Entrega</th>
+						<th></th>
 						<th></th>
 						<th></th>
 				      </tr>
@@ -44,9 +60,10 @@
 						<td>${item.dtPostagem}</td>
 						<td>${item.dtPrevEntrega}</td>
 						<td>${item.dtEntrega}</td>
+						<td><a href="/bring2me/gerar-etiqueta?id=${item.idMalote}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/etiqueta.png" alt="Etiqueta" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Gerar etiqueta"></a></td>
 						<c:if test="${item.status.equals('CRIADO')}">
-							<td><a href="/bring2me/editar-malote?id=${malote.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px"></a></td>
-							<td><a href="/bring2me/deletar-malote?id=${malote.idItem}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px"></a></td>
+							<td><a href="/bring2me/editar-malote?id=${item.idMalote}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Editar"></a></td>
+							<td><a href="/bring2me/deletar-malote?id=${item.idMalote	}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Deletar"></a></td>
 						</c:if>
 				      </tr>
 				    </c:forEach>
@@ -56,6 +73,8 @@
 				<a href="/bring2me/novo-malote" id="novoBtn" class="btn" style="margin:5px">Novo Malote</a>
 			</div>
 	    </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
