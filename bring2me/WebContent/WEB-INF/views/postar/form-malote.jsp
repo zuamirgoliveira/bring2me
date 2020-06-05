@@ -19,13 +19,32 @@
       $(document).ready(function remetente() {
        	$('#inputRemetente').focusout(function getRemetente() {
        		document.getElementById('idUsrRemetente').value=($("#inputRemetente").val());
-       	})
-       })
+       	});
+       });
+      
        $(document).ready(function destinatario() {
        	$('#inputDestinatario').focusout(function getRemetente() {
        		document.getElementById('idUsrDestinatario').value=($("#inputDestinatario").val());
-       	})
-       })
+       	});
+       });
+       
+       $(document).ready(function getSelectedValue() {
+          	document.getElementById('inputRemetente').value=($("#idUsrRemetente").val());
+          	document.getElementById('inputDestinatario').value=($("#idUsrDestinatario").val());
+          	
+          	var itens = document.getElementById('itensMalote').value; //{19, 20, 21, 22, 24, 25, 26, 27} {19,20,21,22,24,25,26,27}
+          	var re = /\s*,\s*/;
+          	var itemList = itens.split(re);
+          	alert(itemList)
+
+          	var i;
+          	for (i = 0; i < itemList.length; i++) {
+          		var id = '#' + itemList[i];
+          		alert(id)
+          		$(id).attr('checked', 'checked');
+          	}
+          });
+       
       </script>
   
    </head>
@@ -43,6 +62,7 @@
             <form:hidden id="idMalote" path="idMalote"/>
             <form:hidden id="idUsrRemetente" path="idUsrRemetente"/>
             <form:hidden id="idUsrDestinatario" path="idUsrDestinatario"/>
+            <form:hidden id="itensMalote" value="${itensMalote}" path=""/>
             <div class="form-group">
                <label for="inputCodigoRastreio">Código de rastreio</label>
                <form:input type="text" class="form-control" id="inputCodigoRastreio" path="codigoRastreio"/>
@@ -69,7 +89,7 @@
 						  <select class="custom-select" id="inputDestinatario">
 						    <option selected>Selecione...</option>
 						     <c:forEach items="${usuarios}" var="item">
-						    	<option value="${item.idUsuario}">${item.nomeRazaoSocial}</option>
+						     	<option value="${item.idUsuario}">${item.nomeRazaoSocial}</option>
 							    </c:forEach>
 						  </select>
 						</div>
@@ -84,14 +104,13 @@
 			      <tr>
 					<td>
 					<div class="custom-control custom-checkbox">
-					  <form:checkbox class="custom-control-input" id="${item.idItem}" value="${item.idItem}" path="itens"/>
+					  <input type="checkbox" class="custom-control-input" id="${item.idItem}"/>
 					  <label class="custom-control-label" for="${item.idItem}">${item.nome}</label>
 					</div>
 					</td>
 			      </tr>
 			    </c:forEach>
-			  </table>
-            
+			  </table>            
             <div id="btn" class="row">
 	            <a href="/bring2me/postar" id="cancelarBtn" class="btn">Cancelar</a>
 	            <button type="submit" id="salvarBtn" class="btn btn-primary">Salvar</button>

@@ -23,26 +23,26 @@
    </head>
    <body>
    </head>
-	<body id="target">
+	<body>
 		<div class="bgHome p-3 p-md-5 rounded">
 			<div class="home-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-right" style="width: 500px;">
-			
-				<div class="border text-left" style="margin: 10px; padding: 20px; width: 500px;">
-					<h3><b>DESTINATÁRIO</b></h3>
-					<h6><b>${nomeDest}</b></h6>
-		      		${logradouroDest}, nº ${numeroDest} - ${complementoDest} <br>
-		      		${bairroDest}, ${cidadeDest} - ${estadoDest} <br>
-		      		Cep: ${cepDest}
+				<div id="target">
+					<div class="border text-left" style="margin: 10px; padding: 20px; width: 500px;">
+						<h3><b>DESTINATÁRIO</b></h3>
+						<h6><b>${nomeDest}</b></h6>
+			      		${logradouroDest}, nº ${numeroDest} - ${complementoDest} <br>
+			      		${bairroDest}, ${cidadeDest} - ${estadoDest} <br>
+			      		Cep: ${cepDest}
+					</div>
+					
+					<div class="border text-left" style="margin: 10px; padding: 20px; width: 500px;">
+						<h3><b>REMETENTE</b></h3>
+						<h6><b>${nomeReme}</b></h6>
+			      		${logradouroReme}, nº ${numeroReme} - ${complementoReme} <br>
+			      		${bairroReme}, ${cidadeReme} - ${estadoReme} <br>
+			      		Cep: ${cepReme}
+					</div>
 				</div>
-				
-				<div class="border text-left" style="margin: 10px; padding: 20px; width: 500px;">
-					<h3><b>REMETENTE</b></h3>
-					<h6><b>${nomeReme}</b></h6>
-		      		${logradouroReme}, nº ${numeroReme} - ${complementoReme} <br>
-		      		${bairroReme}, ${cidadeReme} - ${estadoReme} <br>
-		      		Cep: ${cepReme}
-				</div>
-				
 				<button class="btn" onclick="imprimir()">Imprimir</button>
 				
 			</div>
