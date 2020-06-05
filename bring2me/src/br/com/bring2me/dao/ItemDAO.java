@@ -16,4 +16,6 @@ public interface ItemDAO {
 	
 	public List<Item> listarItens();
 	
+	public List<Item> listarItensMalote(String idMalote);
+	
 }

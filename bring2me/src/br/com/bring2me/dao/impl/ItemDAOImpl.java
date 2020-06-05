@@ -87,4 +87,23 @@ public class ItemDAOImpl implements ItemDAO {
                     		   )
                        );
 	}
+	
+	@Override 
+	public List<Item> listarItensMalote(String id) {
+		String sql = "SELECT * FROM tb_item WHERE id_malote = " + id;
+		
+		return jdbcTemplate.query(
+                sql,
+                (rs, rowNum) ->
+                       new Item(
+                    		   rs.getString("id_item"),
+                    		   rs.getString("nome"),
+                    		   rs.getString("descricao"),
+                    		   rs.getString("quantidade"),
+                    		   rs.getString("valor"),
+                    		   rs.getString("peso"),
+                    		   rs.getString("id_malote")
+                    		   )
+                       );
+	}
 }

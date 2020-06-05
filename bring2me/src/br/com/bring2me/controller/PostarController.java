@@ -17,7 +17,6 @@ import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Item;
 import br.com.bring2me.model.Malote;
 import br.com.bring2me.model.Usuario;
-import net.bytebuddy.agent.builder.AgentBuilder.InitializationStrategy.SelfInjection.Split;
 
 @Controller
 public class PostarController {
@@ -87,6 +86,31 @@ public class PostarController {
 		malDAO.deletar(request.getParameter("id"));
 		
 		return new ModelAndView("redirect:/postar");
+	}
+	
+	
+	@RequestMapping(value = "/editar-malote", method = RequestMethod.GET)
+	public ModelAndView editarMalote(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("postar/form-malote");
+		
+		String id = request.getParameter("id");
+		Malote malote = malDAO.buscarMalote(id);
+		List<Usuario> usuarios = usrDAO.listarUsuarios();
+		List<Item> itens = itDAO.listarItens();
+		
+		List<Item> list = itDAO.listarItensMalote(id);
+		String ids = "";
+		for (int i = 0; i < list.size(); i++) {
+			ids += list.get(i).getIdItem() + ",";
+			itens.add(list.get(i));
+		}
+		model.addObject("malote", malote);
+		model.addObject("itensMalote", ids);
+		model.addObject("usuarios", usuarios);
+		model.addObject("itens", itens);
+		
+		return model;
 	}
 	
 	@RequestMapping(value = "/gerar-etiqueta", method = RequestMethod.GET)

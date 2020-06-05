@@ -15,12 +15,8 @@
 			  $('[data-toggle="tooltip"]').tooltip()
 			};
 		
-		function gerarPDF(etiqueta) {	
-			var doc = new jsPDF();
-			doc.text(20, 20, ''+etiqueta);
-			
-			doc.save('Teste.pdf');
-			
+		function openNewWindow(id) {	
+			window.open("/bring2me/gerar-etiqueta?id="+id);
 		};
 	</script>
 	
@@ -60,7 +56,7 @@
 						<td>${item.dtPostagem}</td>
 						<td>${item.dtPrevEntrega}</td>
 						<td>${item.dtEntrega}</td>
-						<td><a href="/bring2me/gerar-etiqueta?id=${item.idMalote}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/etiqueta.png" alt="Etiqueta" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Gerar etiqueta"></a></td>
+						<td><a href="javaScript:{openNewWindow(${item.idMalote});}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/etiqueta.png" alt="Etiqueta" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Gerar etiqueta"></a></td>
 						<c:if test="${item.status.equals('CRIADO')}">
 							<td><a href="/bring2me/editar-malote?id=${item.idMalote}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/edit.png"  alt="Edit" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Editar"></a></td>
 							<td><a href="/bring2me/deletar-malote?id=${item.idMalote	}"><img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Delete" width="16px" height="16px" data-toggle="tooltip" data-placement="top" title="Deletar"></a></td>
