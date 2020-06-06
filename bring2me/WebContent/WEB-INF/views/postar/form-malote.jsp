@@ -32,15 +32,13 @@
           	document.getElementById('inputRemetente').value=($("#idUsrRemetente").val());
           	document.getElementById('inputDestinatario').value=($("#idUsrDestinatario").val());
           	
-          	var itens = document.getElementById('itensMalote').value; //{19, 20, 21, 22, 24, 25, 26, 27} {19,20,21,22,24,25,26,27}
+          	var itens = document.getElementById('itensMalote').value;
           	var re = /\s*,\s*/;
           	var itemList = itens.split(re);
-          	alert(itemList)
 
           	var i;
           	for (i = 0; i < itemList.length; i++) {
           		var id = '#' + itemList[i];
-          		alert(id)
           		$(id).attr('checked', 'checked');
           	}
           });

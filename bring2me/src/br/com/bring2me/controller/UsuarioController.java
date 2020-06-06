@@ -40,16 +40,24 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/salvar-usuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
-		ModelAndView model = new ModelAndView("redirect:/usuario");
+		ModelAndView model = new ModelAndView("usuario/form-usuarios"); 
 		
 		if(usuario.getIdUsuario().isEmpty() || usuario.getIdUsuario() == null) {
-			if(usrDAO.salvar(usuario) == 0) {
-				model.setViewName("usuario/form-usuarios");
+			if(usrDAO.salvar(usuario) == 1) {
+				model.addObject("tituloModal", "Sucesso");
+				model.addObject("mensagem", "Usuário cadastrado com sucesso!");
+			} else {
+				model.addObject("tituloModal", "Erro");
+				model.addObject("mensagem", "Erro ao cadastrar usuário");
 			}
 			
 		} else {
-			if(usrDAO.atualizar(usuario) == 0) {
-				model.setViewName("usuario/form-usuarios");
+			if(usrDAO.atualizar(usuario) == 1) {
+				model.addObject("tituloModal", "Sucesso");
+				model.addObject("mensagem", "Usuário atualizado com sucesso!");
+			} else {
+				model.addObject("tituloModal", "Erro");
+				model.addObject("mensagem", "Erro ao atualizar usuário");
 			}
 		}
 		return model;
