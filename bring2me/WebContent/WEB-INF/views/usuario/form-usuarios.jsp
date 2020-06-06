@@ -7,13 +7,16 @@
    <head>
    <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
       <link href="resources/css/bring2me.css" rel="stylesheet">
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	  <script src="resources/js/consultarCep.js"></script>
+      
+      
       <title>Form Usuário</title>
       <script type="text/javascript">
          $(document).ready(function cep() {
@@ -22,23 +25,9 @@
          		var cep = $("#inputCep").val();
          		pesquisacep(cep);
         	 }        	 
-         	})
-         })
-      </script>
-      <script>
-	    $(document).ready(function(){
-	      var date_input=$('input[id="inputDtNascimento"]'); //our date input has the name "date"
-	      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-	      var options={
-	        format: 'dd/mm/yyyy',
-	        container: container,
-	        todayHighlight: true,
-	        autoclose: true,
-	      };
-	      date_input.datepicker(options);
-	    })
-	</script>
-	<script>
+         	});
+         });
+
 		var options = {
 			    onKeyPress: function (cpf, ev, el, op) {
 			        var masks = ['000.000.000-000', '00.000.000/0000-00'];
@@ -47,6 +36,18 @@
 			}
 	
 			$('#inputCpfCnpj').length > 11 ? $('#inputCpfCnpj').mask('00.000.000/0000-00', options) : $('#inputCpfCnpj').mask('000.000.000-00#', options);
+		
+		$(document).ready(function modal(){
+			document.getElementById('myBtn').style.display = 'none';
+			if(document.getElementById('idMensagem').value != "") {
+				document.getElementById("myBtn").click();
+			}
+		 });
+		
+		function redirect() {
+	        window.location.href='/bring2me/usuario';	
+		}
+		
 	</script>
    </head>
    <body>
@@ -61,6 +62,7 @@
                <h4>Dados pessoais</h4>
             </div>
             <form:hidden id="idUsuario" path="idUsuario"/>
+            <form:hidden id="idMensagem" value="${mensagem}" path=""/>
             <div class="form-group">
                <label for="inputNomeRazaoSocial">Nome *</label>
                <form:input type="text" class="form-control" id="inputNomeRazaoSocial" path="nomeRazaoSocial"/>
@@ -110,14 +112,47 @@
                <form:input type="text" class="form-control" id="inputComlemento" path="complemento"/>
             </div>
             <div id="btn" class="row">
-	            <a href="/bring2me/usuario" id="cancelarBtn" class="btn">Cancelar</a>
+	            <a href="/bring2me/usuario" id="cancelarBtn" class="btn">Voltar</a>
 	            <button type="submit" id="salvarBtn" class="btn btn-primary">Salvar</button>
             </div>
          </form:form>
-				
+      </div> 
+      
+      <!-- Button trigger modal -->
+
+<button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+        	 <c:choose>
+		         <c:when test = "${tituloModal == 'Sucesso'}">
+		         	<img class="mb-2" id="logoBox" src="resources/imagens/icon/sucesso.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+		         </c:when>
+		         <c:otherwise>
+		            <img class="mb-2" id="logoBox" src="resources/imagens/icon/erro.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+		         </c:otherwise>
+		      </c:choose>
+        		${tituloModal}
+        	</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <script src="resources/js/consultarCep.js"></script>	
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <scipt src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <div class="modal-body">
+        ${mensagem}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
    </body>
 </html>

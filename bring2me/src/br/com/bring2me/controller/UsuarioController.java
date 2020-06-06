@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Usuario;
+import br.com.bring2me.util.Constantes;
 
 @Controller
 public class UsuarioController {
@@ -40,16 +41,23 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/salvar-usuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
-		ModelAndView model = new ModelAndView("redirect:/usuario");
+		ModelAndView model = new ModelAndView("usuario/form-usuarios"); 
 		
 		if(usuario.getIdUsuario().isEmpty() || usuario.getIdUsuario() == null) {
-			if(usrDAO.salvar(usuario) == 0) {
-				model.setViewName("usuario/form-usuarios");
+			if(usrDAO.salvar(usuario) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Usuário cadastrado com sucesso!");
+			} else {
+				model.addObject("tituloModal", "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar usuário. Tente novamente  mais tarde.");
 			}
-			
 		} else {
-			if(usrDAO.atualizar(usuario) == 0) {
-				model.setViewName("usuario/form-usuarios");
+			if(usrDAO.atualizar(usuario) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Usuário atualizado com sucesso!");
+			} else {
+				model.addObject("tituloModal", "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar usuário. Tente novamente  mais tarde.");
 			}
 		}
 		return model;
