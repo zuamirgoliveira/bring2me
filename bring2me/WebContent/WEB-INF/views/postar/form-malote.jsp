@@ -14,35 +14,36 @@
       <link href="resources/css/bring2me.css" rel="stylesheet">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	  
       <title>Novo Malote</title>
-      <script type="text/javascript">
-      $(document).ready(function remetente() {
-       	$('#inputRemetente').focusout(function getRemetente() {
-       		document.getElementById('idUsrRemetente').value=($("#inputRemetente").val());
-       	});
-       });
       
-       $(document).ready(function destinatario() {
-       	$('#inputDestinatario').focusout(function getRemetente() {
-       		document.getElementById('idUsrDestinatario').value=($("#inputDestinatario").val());
-       	});
-       });
-       
-       $(document).ready(function getSelectedValue() {
-          	document.getElementById('inputRemetente').value=($("#idUsrRemetente").val());
-          	document.getElementById('inputDestinatario').value=($("#idUsrDestinatario").val());
-          	
-          	var itens = document.getElementById('itensMalote').value;
-          	var re = /\s*,\s*/;
-          	var itemList = itens.split(re);
-
-          	var i;
-          	for (i = 0; i < itemList.length; i++) {
-          		var id = '#' + itemList[i];
-          		$(id).attr('checked', 'checked');
-          	}
-          });
-       
+      <script type="text/javascript">
+	      $(document).ready(function remetente() {
+	       	$('#inputRemetente').focusout(function getRemetente() {
+	       		document.getElementById('idUsrRemetente').value=($("#inputRemetente").val());
+	       	});
+	       });
+	      
+	       $(document).ready(function destinatario() {
+	       	$('#inputDestinatario').focusout(function getRemetente() {
+	       		document.getElementById('idUsrDestinatario').value=($("#inputDestinatario").val());
+	       	});
+	       });
+	       
+	       $(document).ready(function getSelectedValue() {
+	          	document.getElementById('inputRemetente').value=($("#idUsrRemetente").val());
+	          	document.getElementById('inputDestinatario').value=($("#idUsrDestinatario").val());
+	          	
+	          	var itens = document.getElementById('itensMalote').value;
+	          	var re = /\s*,\s*/;
+	          	var itemList = itens.split(re);
+	
+	          	var i;
+	          	for (i = 0; i < itemList.length; i++) {
+	          		var id = '#' + itemList[i];
+	          		$(id).attr('checked', 'checked');
+	          	}
+	          });
       </script>
   
    </head>

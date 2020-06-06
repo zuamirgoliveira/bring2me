@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Usuario;
+import br.com.bring2me.util.Constantes;
 
 @Controller
 public class UsuarioController {
@@ -44,20 +45,19 @@ public class UsuarioController {
 		
 		if(usuario.getIdUsuario().isEmpty() || usuario.getIdUsuario() == null) {
 			if(usrDAO.salvar(usuario) == 1) {
-				model.addObject("tituloModal", "Sucesso");
-				model.addObject("mensagem", "Usuário cadastrado com sucesso!");
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Usuário cadastrado com sucesso!");
 			} else {
 				model.addObject("tituloModal", "Erro");
-				model.addObject("mensagem", "Erro ao cadastrar usuário");
+				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar usuário. Tente novamente  mais tarde.");
 			}
-			
 		} else {
 			if(usrDAO.atualizar(usuario) == 1) {
-				model.addObject("tituloModal", "Sucesso");
-				model.addObject("mensagem", "Usuário atualizado com sucesso!");
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Usuário atualizado com sucesso!");
 			} else {
 				model.addObject("tituloModal", "Erro");
-				model.addObject("mensagem", "Erro ao atualizar usuário");
+				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar usuário. Tente novamente  mais tarde.");
 			}
 		}
 		return model;

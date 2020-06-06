@@ -130,8 +130,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">
-        	<img class="mb-2" id="logoBox" src="resources/imagens/icon/trash.png"  alt="Edit" width="24px" height="24px">
-        ${tituloModal}</h5>
+        	 <c:choose>
+		         <c:when test = "${tituloModal == 'Sucesso'}">
+		         	<img class="mb-2" id="logoBox" src="resources/imagens/icon/sucesso.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+		         </c:when>
+		         <c:otherwise>
+		            <img class="mb-2" id="logoBox" src="resources/imagens/icon/erro.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+		         </c:otherwise>
+		      </c:choose>
+        		${tituloModal}
+        	</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
