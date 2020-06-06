@@ -26,15 +26,20 @@ public class HomeController {
 	
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ModelAndView processarLogin(@ModelAttribute Login login) {
-		ModelAndView model = new ModelAndView("redirect:/home");
+		ModelAndView model = new ModelAndView("login/index");
 		
 		Login log = dao.getLogin(login.getEmail());
 		
-		if(log.getSenha().isEmpty() || !log.getSenha().equals(login.getSenha())) {
-			model.setViewName("redirect:/login");
-			model.addObject("statusLogin", "erro");
+		
+		if(log.getEmail() != null) {
+			if(log.getSenha().equals(login.getSenha())) {
+				//implementar session
+				model.setViewName("home/index");
+			} else {
+				model.addObject("mensagem", "Senha incorreta. Tente novamente.");
+			}
 		} else {
-			//TO-DO impementar sessão do usuário e cache
+			model.addObject("mensagem", "Email não encontrado.");
 		}
 		
 		return model;
