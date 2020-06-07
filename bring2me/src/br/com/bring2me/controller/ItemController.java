@@ -77,9 +77,20 @@ public class ItemController {
 	
 	@RequestMapping(value = "/deletar-item", method = RequestMethod.GET)
 	public ModelAndView deletarItem(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView(Constantes.ITEM_INDEX);
 		String id = request.getParameter(Constantes.ID);
-		itenDAO.deletar(id);
 		
-		return new ModelAndView(Constantes.ITEM_REDIRECT);
+		if(itenDAO.deletar(id) == 1) {
+			model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+			model.addObject(Constantes.MENSAGEM, "Item removido com sucesso!");				
+		} else {
+			model.addObject(Constantes.TITULO_MODAL, "Erro");
+			model.addObject(Constantes.MENSAGEM, "Erro ao deletar o item. Tente novamente  mais tarde.");				
+		}
+		
+		List<Item> itemLista = itenDAO.listarItens();
+		model.addObject("itemLista", itemLista);
+		
+		return model;
 	}
 }

@@ -18,6 +18,14 @@
 		function tooltip() {
 			$('[data-toggle="tooltip"]').tooltip()
 		}
+		
+		$(document).ready(function modal(){
+			document.getElementById('myBtn').style.display = 'none';
+			document.getElementById('idMensagem').style.display = 'none';
+			if(document.getElementById('idMensagem').value != "") {
+				document.getElementById("myBtn").click();
+			}
+		 });
 	</script>
 	</head>
 	<body>
@@ -57,5 +65,41 @@
 				<a href="/bring2me/novo-item" id="novoBtn" class="btn" style="margin:5px">Novo Item</a>
 			</div>
 	    </div>
+	    
+	    <!-- Button trigger modal -->
+	    <input id="idMensagem" value="${mensagem}">
+		<button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+		  Launch demo modal
+		</button>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">
+		        	 <c:choose>
+				         <c:when test = "${tituloModal == 'Sucesso'}">
+				         	<img class="mb-2" id="logoBox" src="resources/imagens/icon/sucesso.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+				         </c:when>
+				         <c:otherwise>
+				            <img class="mb-2" id="logoBox" src="resources/imagens/icon/erro.png"  alt="Edit" width="32px" height="32px" style="margin: 0px 10px 0px 0px">
+				         </c:otherwise>
+				      </c:choose>
+		        		${tituloModal}
+		        	</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ${mensagem}
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</body>
 </html>
