@@ -80,6 +80,6 @@ public class ItemController {
 		String id = request.getParameter(Constantes.ID);
 		itenDAO.deletar(id);
 		
-		return new ModelAndView(Constantes.REDIRECT_INDEX);
+		return new ModelAndView(Constantes.ITEM_REDIRECT);
 	}
 }
