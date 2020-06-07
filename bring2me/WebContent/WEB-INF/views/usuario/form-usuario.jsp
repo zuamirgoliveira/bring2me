@@ -35,7 +35,7 @@
 			    }
 			}
 	
-			$('#inputCpfCnpj').length > 11 ? $('#inputCpfCnpj').mask('00.000.000/0000-00', options) : $('#inputCpfCnpj').mask('000.000.000-00#', options);
+		$('#inputCpfCnpj').length > 11 ? $('#inputCpfCnpj').mask('00.000.000/0000-00', options) : $('#inputCpfCnpj').mask('000.000.000-00#', options);
 		
 		$(document).ready(function modal(){
 			document.getElementById('myBtn').style.display = 'none';
@@ -148,7 +148,7 @@
 		        ${mensagem}
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+		        <button type="button" class="btn btn-primary" onclick="redirect()">OK</button>
 		      </div>
 		    </div>
 		  </div>

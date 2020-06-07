@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bring2me.dao.ItemDAO;
 import br.com.bring2me.model.Item;
+import br.com.bring2me.util.Constantes;
 
 @Controller
 public class ItemController {
@@ -22,7 +23,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/itens")
 	public ModelAndView listarItems(ModelAndView model) {
-		model.setViewName("item/index");
+		model.setViewName(Constantes.ITEM_INDEX);
 		List<Item> itemLista = itenDAO.listarItens();
 		model.addObject("itemLista", itemLista);
 		
@@ -31,7 +32,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/novo-item", method = RequestMethod.GET)
 	public ModelAndView novoItem(ModelAndView model) {
-		model.setViewName("item/form-item");
+		model.setViewName(Constantes.ITEM_FORM);
 		Item novoItem = new Item();
 		model.addObject("item", novoItem);
 		
@@ -40,37 +41,45 @@ public class ItemController {
 	
 	@RequestMapping(value = "/salvar-item", method = RequestMethod.POST)
 	public ModelAndView salvarItem(@ModelAttribute Item item) {
-		ModelAndView model = new ModelAndView("redirect:/itens");
+		ModelAndView model = new ModelAndView(Constantes.ITEM_FORM);
 		
 		if(item.getIdItem().isEmpty() || item.getIdItem() == null) {
-			if(itenDAO.salvar(item) == 0) {
-				model.setViewName("item/form-itens");
+			if(itenDAO.salvar(item) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Item cadastrado com sucesso!");				
+			} else {
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar o item. Tente novamente  mais tarde.");				
 			}
-			
 		} else {
-			if(itenDAO.atualizar(item) == 0) {
-				model.setViewName("item/form-itens");
+			if(itenDAO.atualizar(item) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Item atualizado com sucesso!");
+			} else {
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar o item. Tente novamente  mais tarde.");
 			}
 		}
+		
 		return model;
 	}
 	
 	@RequestMapping(value = "/editar-item", method = RequestMethod.GET)
 	public ModelAndView editarItem(HttpServletRequest request) {
-		String id = request.getParameter("id");
+		String id = request.getParameter(Constantes.ID);
 		Item item = itenDAO.buscarItem(id);
 		
 		ModelAndView model = new ModelAndView();
-		model.setViewName("item/form-item");
+		model.setViewName(Constantes.ITEM_FORM);
 		model.addObject("item", item);
 		return model;
 	}
 	
 	@RequestMapping(value = "/deletar-item", method = RequestMethod.GET)
 	public ModelAndView deletarItem(HttpServletRequest request) {
-		String id = request.getParameter("id");
+		String id = request.getParameter(Constantes.ID);
 		itenDAO.deletar(id);
 		
-		return new ModelAndView("redirect:/itens");
+		return new ModelAndView(Constantes.REDIRECT_INDEX);
 	}
 }

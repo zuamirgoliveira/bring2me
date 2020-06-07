@@ -15,9 +15,9 @@
 	<title>Itens</title>
 	
 	<script type="text/javascript">
-		$(function () {
-			  $('[data-toggle="tooltip"]').tooltip()
-			})
+		function tooltip() {
+			$('[data-toggle="tooltip"]').tooltip()
+		}
 	</script>
 	</head>
 	<body>

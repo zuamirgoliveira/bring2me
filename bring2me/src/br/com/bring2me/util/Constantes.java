@@ -9,5 +9,17 @@ public class Constantes {
 	
 	public static final String TITULO_MODAL = "tituloModal";
 	public static final String MENSAGEM = "mensagem";
+	
+	public static final String REDIRECT_INDEX = "redirect:/index";
+	public static final String LOGIN_INDEX = "login/index";
+	public static final String HOME_INDEX = "home/index";
+	public static final String USUARIO_INDEX = "usuario/index";
+	public static final String ITEM_INDEX = "item/index";
+	
+	public static final String USUARIO_FORM = "usuario/form-usuario";
+	public static final String ITEM_FORM = "item/form-item";
+		
+	public static final String ID = "id";
+	
 
 }
