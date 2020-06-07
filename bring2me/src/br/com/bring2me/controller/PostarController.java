@@ -17,6 +17,7 @@ import br.com.bring2me.dao.UsuarioDAO;
 import br.com.bring2me.model.Item;
 import br.com.bring2me.model.Malote;
 import br.com.bring2me.model.Usuario;
+import br.com.bring2me.util.Constantes;
 
 @Controller
 public class PostarController {
@@ -32,7 +33,7 @@ public class PostarController {
 	
 	@RequestMapping(value = "/postar")
 	public ModelAndView listarMalote(ModelAndView model) {
-		model.setViewName("postar/index");
+		model.setViewName(Constantes.POSTAR_INDEX);
 		List<Malote> malotes = malDAO.listarMalotes();
 		
 		for(int i = 0; i < malotes.size(); i++) {
@@ -52,7 +53,7 @@ public class PostarController {
 	
 	@RequestMapping(value = "/novo-malote")
 	public ModelAndView formMalote(ModelAndView model) {
-		model.setViewName("postar/form-malote");
+		model.setViewName(Constantes.POSTAR_FORM);
 		
 		List<Usuario> usuarios = usrDAO.listarUsuarios();
 		List<Item> itens = itDAO.listarItens();
@@ -66,35 +67,43 @@ public class PostarController {
 	
 	@RequestMapping(value = "/salvar-malote", method = RequestMethod.POST)
 	public ModelAndView salvarMalote(@ModelAttribute Malote malote) {
-		ModelAndView model = new ModelAndView("redirect:/postar");
+		ModelAndView model = new ModelAndView(Constantes.POSTAR_FORM);
 		
 		if(malote.getIdMalote().isEmpty() || malote.getIdMalote() == null) {
-			if(malDAO.salvar(malote) == 0) {
-				model.setViewName("item/form-malote");
+			if(malDAO.salvar(malote) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Malote cadastrado com sucesso!");
+			} else {
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar o malote. Tente novamente  mais tarde.");
 			}
-			
 		} else {
-			if(malDAO.atualizar(malote) == 0) {
-				model.setViewName("item/form-malote");
+			if(malDAO.atualizar(malote) == 1) {
+				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.MENSAGEM, "Malote atualizado com sucesso!");
+			} else {
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar o malote. Tente novamente  mais tarde.");
 			}
 		}
+		
 		return model;
 	}
 	
 	@RequestMapping(value = "/deletar-malote", method = RequestMethod.GET)
 	public ModelAndView deletarMalote(HttpServletRequest request) {
-		malDAO.deletar(request.getParameter("id"));
+		malDAO.deletar(request.getParameter(Constantes.ID));
 		
-		return new ModelAndView("redirect:/postar");
+		return new ModelAndView(Constantes.POSTAR_REDIRECT);
 	}
 	
 	
 	@RequestMapping(value = "/editar-malote", method = RequestMethod.GET)
 	public ModelAndView editarMalote(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("postar/form-malote");
+		model.setViewName(Constantes.POSTAR_FORM);
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter(Constantes.ID);
 		Malote malote = malDAO.buscarMalote(id);
 		List<Usuario> usuarios = usrDAO.listarUsuarios();
 		List<Item> itens = itDAO.listarItens();
@@ -115,8 +124,8 @@ public class PostarController {
 	
 	@RequestMapping(value = "/gerar-etiqueta", method = RequestMethod.GET)
 	public ModelAndView gerarEtiqueta(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("postar/etiqueta");
-		Malote mal = malDAO.buscarMalote(request.getParameter("id"));
+		ModelAndView model = new ModelAndView(Constantes.POSTAR_ETIQUETA);
+		Malote mal = malDAO.buscarMalote(request.getParameter(Constantes.ID));
 		
 		Usuario destinatario = usrDAO.getUsuarioById(mal.getIdUsrDestinatario());
 		model.addObject("nomeDest", destinatario.getNomeRazaoSocial().toUpperCase());

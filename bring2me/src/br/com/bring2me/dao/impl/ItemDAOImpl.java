@@ -32,7 +32,7 @@ public class ItemDAOImpl implements ItemDAO {
 	public int atualizar(Item item) {
 		String sql = "UPDATE tb_item SET nome = ?, descricao = ?, quantidade = ?, valor = ?, peso = ? WHERE id_item = ?";
 		
-		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), Integer.parseInt(item.getQuantidade()), Double.parseDouble(item.getValor()), Double.parseDouble(item.getPeso()));
+		return jdbcTemplate.update(sql, item.getNome(), item.getDescricao(), Integer.parseInt(item.getQuantidade()), Double.parseDouble(item.getValor()), Double.parseDouble(item.getPeso()), item.getIdItem());
 	}
 	
 	@Override

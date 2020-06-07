@@ -23,7 +23,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/usuario")
 	public ModelAndView listarUsuarios(ModelAndView model) {
-		model.setViewName("usuario/index");
+		model.setViewName(Constantes.USUARIO_INDEX);
 		List<Usuario> usuarioLista = usrDAO.listarUsuarios();
 		model.addObject("usuarioLista", usuarioLista);
 		
@@ -32,7 +32,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/novo-usuario", method = RequestMethod.GET)
 	public ModelAndView novoUsuario(ModelAndView model) {
-		model.setViewName("usuario/form-usuarios");
+		model.setViewName(Constantes.USUARIO_FORM);
 		Usuario novoUsuario = new Usuario();
 		model.addObject("usuario", novoUsuario);
 		
@@ -41,14 +41,14 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/salvar-usuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute Usuario usuario) {
-		ModelAndView model = new ModelAndView("usuario/form-usuarios"); 
+		ModelAndView model = new ModelAndView(Constantes.USUARIO_FORM); 
 		
 		if(usuario.getIdUsuario().isEmpty() || usuario.getIdUsuario() == null) {
 			if(usrDAO.salvar(usuario) == 1) {
 				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
 				model.addObject(Constantes.MENSAGEM, "Usuário cadastrado com sucesso!");
 			} else {
-				model.addObject("tituloModal", "Erro");
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
 				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar usuário. Tente novamente  mais tarde.");
 			}
 		} else {
@@ -56,7 +56,7 @@ public class UsuarioController {
 				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
 				model.addObject(Constantes.MENSAGEM, "Usuário atualizado com sucesso!");
 			} else {
-				model.addObject("tituloModal", "Erro");
+				model.addObject(Constantes.TITULO_MODAL, "Erro");
 				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar usuário. Tente novamente  mais tarde.");
 			}
 		}
@@ -65,11 +65,11 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/editar-usuario", method = RequestMethod.GET)
 	public ModelAndView editarUsuario(HttpServletRequest request) {
-		String id = request.getParameter("id");
+		String id = request.getParameter(Constantes.ID);
 		Usuario usuario = usrDAO.getUsuarioById(id);
 		
 		ModelAndView model = new ModelAndView();
-		model.setViewName("usuario/form-usuarios");
+		model.setViewName(Constantes.USUARIO_FORM);
 		model.addObject("usuario", usuario);
 		return model;
 	}
