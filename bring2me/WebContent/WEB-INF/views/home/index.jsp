@@ -56,7 +56,7 @@
 		       </div>
 		      </div>
 		    </div>
-			<div lass="footer-copyright text-center py-3" style="font-size: 12px; position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #012340">
+			<div class="footer-copyright text-center py-3" style="font-size: 12px; position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; color: #012340">
 	          <p>Poste e rastreie seus malotes com &copy; Bring2Me 2020 - Todos os direitos reservados.</p>
 	    	</div>
 	    </div>

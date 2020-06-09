@@ -121,7 +121,7 @@
 			    </c:forEach>
 			  </table>            
             <div id="btn" class="row">
-	            <a href="/bring2me/postar" id="cancelarBtn" class="btn">Cancelar</a>
+	            <a href="/bring2me/postar" id="cancelarBtn" class="btn">Voltar</a>
 	            <button type="submit" id="salvarBtn" class="btn btn-primary">Salvar</button>
             </div>
          </form:form>

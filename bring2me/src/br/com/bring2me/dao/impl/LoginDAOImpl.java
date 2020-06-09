@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import br.com.bring2me.dao.LoginDAO;
 import br.com.bring2me.model.Login;
-import br.com.bring2me.util.DateUtils;
 
 public class LoginDAOImpl implements LoginDAO {
 	
@@ -44,7 +43,6 @@ public class LoginDAOImpl implements LoginDAO {
 			@Override
 			public Login extractData(ResultSet rs) {
 				Login login = new Login();
-				DateUtils dt = new DateUtils();
 				try {
 					if (rs.next()) {
 						login.setIdLogin(rs.getString("id_login"));
