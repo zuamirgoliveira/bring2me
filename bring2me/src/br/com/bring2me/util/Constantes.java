@@ -8,6 +8,8 @@ public class Constantes {
 	public static final String ATIVO = "ATIVO";
 	
 	public static final String TITULO_MODAL = "tituloModal";
+	public static final String SUCESSO = "Sucesso";
+	public static final String ERRO = "Erro";
 	public static final String MENSAGEM = "mensagem";
 	
 	public static final String ITEM_REDIRECT = "redirect:/itens";
@@ -27,6 +29,9 @@ public class Constantes {
 	public static final String ITEM_INDEX = "item/index";
 		
 	public static final String ID = "id";
+	public static final String PAGE = "page";
+	
+	public static final int CINCO = 5;
 	
 
 }

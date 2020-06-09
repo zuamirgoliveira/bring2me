@@ -45,18 +45,18 @@ public class ItemController {
 		
 		if(item.getIdItem().isEmpty() || item.getIdItem() == null) {
 			if(itenDAO.salvar(item) == 1) {
-				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.TITULO_MODAL, Constantes.SUCESSO);
 				model.addObject(Constantes.MENSAGEM, "Item cadastrado com sucesso!");				
 			} else {
-				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.TITULO_MODAL, Constantes.ERRO);
 				model.addObject(Constantes.MENSAGEM, "Erro ao cadastrar o item. Tente novamente  mais tarde.");				
 			}
 		} else {
 			if(itenDAO.atualizar(item) == 1) {
-				model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+				model.addObject(Constantes.TITULO_MODAL, Constantes.SUCESSO);
 				model.addObject(Constantes.MENSAGEM, "Item atualizado com sucesso!");
 			} else {
-				model.addObject(Constantes.TITULO_MODAL, "Erro");
+				model.addObject(Constantes.TITULO_MODAL, Constantes.ERRO);
 				model.addObject(Constantes.MENSAGEM, "Erro ao atualizar o item. Tente novamente  mais tarde.");
 			}
 		}
@@ -81,10 +81,10 @@ public class ItemController {
 		String id = request.getParameter(Constantes.ID);
 		
 		if(itenDAO.deletar(id) == 1) {
-			model.addObject(Constantes.TITULO_MODAL, "Sucesso");
+			model.addObject(Constantes.TITULO_MODAL, Constantes.SUCESSO);
 			model.addObject(Constantes.MENSAGEM, "Item removido com sucesso!");				
 		} else {
-			model.addObject(Constantes.TITULO_MODAL, "Erro");
+			model.addObject(Constantes.TITULO_MODAL, Constantes.ERRO);
 			model.addObject(Constantes.MENSAGEM, "Erro ao deletar o item. Tente novamente  mais tarde.");				
 		}
 		

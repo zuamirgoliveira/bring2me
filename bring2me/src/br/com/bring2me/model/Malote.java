@@ -1,7 +1,6 @@
 package br.com.bring2me.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class Malote {
 	
