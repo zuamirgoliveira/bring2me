@@ -1,6 +1,7 @@
 package br.com.bring2me.config;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import javax.sql.DataSource;
 
@@ -76,11 +77,6 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 		return new LoginDAOImpl(getDataSource());
 	}
 	
-	@Bean
-	public StringHttpMessageConverter stringHttpMessageConverter() {
-	    return new StringHttpMessageConverter(Charset.forName("UTF-8"));
-	}
-
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");

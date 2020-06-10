@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `bring2medb`.`tb_usuario` (
   `bairro` VARCHAR(255) NOT NULL,
   `cidade` VARCHAR(255) NOT NULL,
   `estado` VARCHAR(255) NOT NULL,
-  `cep` INT(11) NOT NULL,
+  `cep` VARCHAR(20) NOT NULL,
   `complemento` VARCHAR(255) NULL,
   PRIMARY KEY (`id_usuario`, `cpf_cnpj`),
   UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC),

@@ -82,12 +82,12 @@
 						  <div class="input-group-prepend">
 						    <label class="input-group-text" for="inputRemetente">Remetente</label>
 						  </div>
-						  <select class="custom-select" id="inputRemetente">
-						    <option selected>Selecione...</option>
+						  <form:select class="custom-select" id="inputRemetente" path="">
+						    <form:option value="" selected>Selecione...</form:option>
 						     <c:forEach items="${usuarios}" var="item">
-						    	<option value="${item.idUsuario}">${item.nomeRazaoSocial}</option>
+						    	<form:option value="${item.idUsuario}">${item.nomeRazaoSocial}</form:option>
 							    </c:forEach>
-						  </select>
+						  </form:select>
 						</div>
             	</div>
 				<div class="col-md-6 mb-3">
@@ -95,12 +95,12 @@
 						  <div class="input-group-prepend">
 						    <label class="input-group-text" for="inputDestinatario">Destinatário</label>
 						  </div>
-						  <select class="custom-select" id="inputDestinatario">
-						    <option selected>Selecione...</option>
+						  <form:select class="custom-select" id="inputDestinatario" path="">
+						    <form:option value="" selected>Selecione...</form:option>
 						     <c:forEach items="${usuarios}" var="item">
-						     	<option value="${item.idUsuario}">${item.nomeRazaoSocial}</option>
+						     	<form:option value="${item.idUsuario}">${item.nomeRazaoSocial}</form:option>
 							    </c:forEach>
-						  </select>
+						  </form:select>
 						</div>
             	</div>
             </div>

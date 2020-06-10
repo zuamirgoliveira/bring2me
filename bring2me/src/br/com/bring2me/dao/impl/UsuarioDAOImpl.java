@@ -25,12 +25,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int salvar(Usuario usr) {
 	
-		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao, dt_atualizacao,"
-				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, SYSDATE(), ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO tb_usuario (cpf_cnpj, nome_razao_social, telefone, email, dt_criacao,"
+				+ "	  logradouro, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, SYSDATE(), ?, ?, ?, ?, ?, ?, ?)";
 		
 		return jdbcTemplate.update(sql, usr.getCpfCnpj(), usr.getNomeRazaoSocial(), usr.getTelefone(), usr.getEmail(),
-				usr.getDtAtualizacao(), usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(),
-				usr.getEstado(), usr.getCep(), usr.getComplemento());
+				usr.getLogradouro(), usr.getNumero(), usr.getBairro(), usr.getCidade(), usr.getEstado(), usr.getCep(), usr.getComplemento());
 	}
 
 	@Override

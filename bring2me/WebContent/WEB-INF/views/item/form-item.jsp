@@ -59,24 +59,24 @@
             <form:hidden id="idMensagem" value="${mensagem}" path=""/>
             <div class="form-group">
                <label for="inputNome">Nome *</label>
-               <form:input type="text" class="form-control" id="inputNome" path="nome"/>
+               <form:input type="text" class="form-control" id="inputNome" path="nome" required="required"/>
             </div>
             <div class="form-group">
                <label for="inputDescricao">Descrição *</label>
-               <form:input type="text" class="form-control" id="inputDescricao" path="descricao"/>
+               <form:input type="text" class="form-control" id="inputDescricao" path="descricao" required="required"/>
             </div>
             <div class="row">
                <div class="col-md-3 mb-3">
                   <label for="inputQuantidade">Quantidade *</label>
-                  <form:input type="text" class="form-control" id="inputQuantidade" maxlength="4" onkeypress='return onlynumber()' path="quantidade"/>
+                  <form:input type="text" class="form-control" id="inputQuantidade" maxlength="4" onkeypress='return onlynumber()' path="quantidade" required="required"/>
                </div>
                <div class="col-md-3 mb-2">
                   <label for="inputValor">Valor R$ *</label>
-                  <form:input type="text" class="form-control" id="inputValor" maxlength="8" onkeypress='return onlynumber()' path="valor"/>
+                  <form:input type="text" class="form-control" id="inputValor" maxlength="8" onkeypress='return onlynumber()' path="valor" required="required"/>
                </div>
                <div class="col-md-3 mb-2">
                   <label for="inputPeso">Peso Kg *</label>
-                  <form:input type="text" class="form-control" id="inputPeso" maxlength="8" onkeypress='return onlynumber()' path="peso"/>
+                  <form:input type="text" class="form-control" id="inputPeso" maxlength="8" onkeypress='return onlynumber()' path="peso" required="required"/>
                </div>
             </div>
 
